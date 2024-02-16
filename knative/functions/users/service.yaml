@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: users
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/wajrcs/users-knative
+        env:
+        - name: TARGET
+          value: "Python Sample v1"

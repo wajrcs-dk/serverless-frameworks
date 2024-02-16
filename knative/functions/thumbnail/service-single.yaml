@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: thumbnail-single
+  namespace: knative-serverless
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/wajrcs/thumbnail-knative
+        env:
+        - name: TARGET
+          value: "Python Sample v1"
