@@ -4,9 +4,10 @@
 # https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/
 
 # Install Knative CLI
-curl -O https://github.com/knative/client/releases/download/knative-v1.13.0/kn-linux-amd64
+wget https://github.com/knative/client/releases/download/knative-v1.13.0/kn-linux-amd64
 mv kn-linux-amd64 kn
 sudo cp kn /usr/local/bin
+sudo chmod +x /usr/local/bin/kn
 kn version
 
 # Install the Knative Serving component
@@ -38,6 +39,10 @@ kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1
 
 # Docker Login
 docker login
+
+# Create Namespace
+cd functions
+kubectl apply -f ./namespace/namespace.yaml
 
 # Fibonacci
 cd fibonacci
