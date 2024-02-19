@@ -1,22 +1,14 @@
-kind: PersistentVolume
 apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: my-pv
+  name: task-pv-volume
   labels:
     type: local
 spec:
-  storageClassName: standard
+  storageClassName: manual
   capacity:
-    storage: 11Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data"
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - vmserverless0
