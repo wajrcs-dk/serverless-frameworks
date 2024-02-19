@@ -20,8 +20,6 @@ export gw=10.4.110.208:31112
 echo $(kubectl -n openfaas get secret basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode)
 faas-cli login -g http://$OPENFAAS_URL -u admin --password 2nQAyZrzBI32
 kubectl get pods -n openfaas
-export OPENFAAS_URL=$(minikube ip):31112
-export gw=http://$(minikube ip):31112
 
 # Docker Login
 docker login
