@@ -6,5 +6,5 @@ functions:
   quicksort:
     lang: python3
     handler: ./quicksort
-    image: quicksort:latest
+    image: wajrcs/quicksort:latest
 

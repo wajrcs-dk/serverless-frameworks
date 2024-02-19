@@ -6,5 +6,5 @@ functions:
   fibonacci:
     lang: python3
     handler: ./fibonacci
-    image: fibonacci:latest
+    image: wajrcs/fibonacci:latest
 

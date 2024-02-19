@@ -31,7 +31,7 @@ kubectl get pods -n knative-serving
 kubectl patch configmap/config-domain \
       --namespace knative-serving \
       --type merge \
-      --patch '{"data":{"example.com":""}}'
+      --patch '{"data":{"vmserverless0.dzhw.local":""}}'
 kubectl get ksvc
 
 # HPA autoscaling
@@ -43,6 +43,9 @@ docker login
 # Create Namespace
 cd functions
 kubectl apply -f ./namespace/namespace.yaml
+
+# Check services
+kn service ls -n  knative-serverless
 
 # Fibonacci
 cd fibonacci
