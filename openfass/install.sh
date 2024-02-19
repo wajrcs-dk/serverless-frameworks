@@ -36,8 +36,8 @@ hey -z 10s -c 10 http://10.4.110.208:31112/function/fibonacci -d "1000"
 # Quicksort
 cd quicksort
 faas-cli new --lang python3 quicksort
-faas-cli build -f quicksort.yml
-faas-cli push -f quicksort.yml
+sudo faas-cli build -f quicksort.yml
+sudo faas-cli push -f quicksort.yml
 faas-cli deploy -f quicksort.yml --gateway $gw
 curl http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
 hey -z 300s -c 50 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
@@ -45,8 +45,8 @@ hey -z 300s -c 50 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,
 # Users
 cd users
 faas-cli new --lang python3 users
-faas-cli build -f users.yml
-faas-cli push -f users.yml
+sudo faas-cli build -f users.yml
+sudo faas-cli push -f users.yml
 faas-cli deploy -f users.yml --gateway $gw
 curl http://10.4.110.208:31112/function/users
 hey -z 300s -c 50 http://10.4.110.208:31112/function/users
@@ -54,8 +54,8 @@ hey -z 300s -c 50 http://10.4.110.208:31112/function/users
 # Thumbnail Generator
 cd thumbnail
 faas-cli new --lang python3 thumbnail
-faas-cli build -f thumbnail.yml
-faas-cli push -f thumbnail.yml
+sudo faas-cli build -f thumbnail.yml
+sudo faas-cli push -f thumbnail.yml
 faas-cli deploy -f thumbnail.yml --gateway $gw
 curl http://10.4.110.208:31112/function/thumbnail
-hey -z 300s -c 50 http://10.4.110.208:31112/function/thumbnail
+hey -z 1s -c 1 http://10.4.110.208:31112/function/thumbnail
