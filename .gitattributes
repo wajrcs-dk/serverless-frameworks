@@ -1,0 +1,11 @@
+*           text=auto
+*.txt       text
+*.sh        text eol=lf
+*.jpg       -text
+*.png       -text
+*.otf       -text
+*.eot       -text
+*.svg       -text
+*.ttf       -text
+*.woff      -text
+*.woff2     -text
