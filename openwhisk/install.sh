@@ -50,6 +50,10 @@ wget https://github.com/apache/openwhisk-cli/releases/download/latest/OpenWhisk_
 tar -xvf OpenWhisk_CLI-latest-linux-386.tgz
 sudo mv wsk /usr/local/bin/wsk
 
+wget https://github.com/apache/openwhisk-wskdeploy/releases/download/1.2.0/openwhisk_wskdeploy-1.2.0-linux-amd64.tgz
+tar -xvf openwhisk_wskdeploy-1.2.0-linux-amd64.tgz
+sudo mv wskdeploy /usr/local/bin/wskdeploy
+
 helm install owdev ./helm/openwhisk -n openwhisk --create-namespace -f mycluster.yaml
 kubectl -n openwhisk get pods
 wsk property set --apihost 10.4.110.208:31001
@@ -57,19 +61,24 @@ wsk property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK
 wsk list -i
 wsk api list -i
 
+export NODE_TLS_REJECT_UNAUTHORIZED="0"
+
 # Fibonacci
 cd fibonacci
 wsk api list -i
 wskdeploy -m fibonacci.yaml
-curl https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=10
-hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=10
+curl --insecure https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
+hey -z 60s -c 10 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
+hey -z 300s -c 10 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
+hey -z 300s -c 50 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
+hey -z 300s -c 150 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
 
 # Quicksort
 cd quicksort
 wsk api list -i
 wskdeploy -m quicksort.yaml
-curl https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10
-hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+curl --insecure https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10
+hey -z 300s -c 10  https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 
 # Users
 cd users

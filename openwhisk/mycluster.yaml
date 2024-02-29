@@ -1,10 +1,39 @@
 controller:
-  replicaCount: 2
+  replicaCount: 3
 whisk:
   ingress:
     type: NodePort
     apiHostName: 10.4.110.208
     apiHostPort: 31001
+  limits:
+    actionsInvokesPerminute: 75000
+    actionsInvokesConcurrent: 250
+    triggersFiresPerminute: 75000
+    actionsSequenceMaxlength: 75000
+    actions:
+      minuteRate: 75000
+      time:
+        min: "50ms"
+        max: "5m"
+        std: "1m"
+      memory:
+        min: "128m"
+        max: "512m"
+        std: "256m"
+      concurrency:
+        min: 1
+        max: 1000
+        std: 150
+      log:
+        min: "0m"
+        max: "10m"
+        std: "10m"
+    activation:
+      payload:
+        max: "1048576"
+    loadbalancer:
+      blackboxFraction: "10%"
+      timeoutFactor: 2
 k8s:
   persistence:
     enabled: false
