@@ -1,9 +1,13 @@
 #!/bin/bash
 
 # Source
+# https://medium.com/@ansjin/openwhisk-deployment-on-a-kubernetes-cluster-7fd3fc2f3726
+# https://github.com/apache/openwhisk-deploy-kube#initial-setup
 
 kubectl create namespace openwhisk
-kubectl label nodes --all openwhisk-role=invoker
+kubectl label nodes vmserverless0 openwhisk-role=core
+kubectl label nodes vmserverless1 openwhisk-role=invoker
+kubectl label nodes vmserverless2 openwhisk-role=invoker
 
 git clone https://github.com/apache/openwhisk-deploy-kube.git  && cd openwhisk-deploy-kube
 
@@ -42,9 +46,14 @@ whisk:
 nginx:
   httpsNodePort: 31001
 
+wget https://github.com/apache/openwhisk-cli/releases/download/latest/OpenWhisk_CLI-latest-linux-386.tgz
+tar -xvf OpenWhisk_CLI-latest-linux-386.tgz
+sudo mv wsk /usr/local/bin/wsk
+
 helm install owdev ./helm/openwhisk -n openwhisk --create-namespace -f mycluster.yaml
 kubectl -n openwhisk get pods
-wsk property set --apihost $(minikube ip):31001 --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
+wsk property set --apihost 10.4.110.208:31001
+wsk property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
 wsk list -i
 wsk api list -i
 

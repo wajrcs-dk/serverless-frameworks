@@ -24,6 +24,9 @@ kubectl get pods -n openfaas
 # Docker Login
 sudo docker login
 
+# Kubernetes Tunnel for local or remote access
+kubectl port-forward svc/gateway -n openfaas 8080:8080
+
 # Fibonacci
 cd fibonacci
 # faas-cli new --lang python3 fibonacci
