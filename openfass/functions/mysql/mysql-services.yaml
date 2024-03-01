@@ -8,8 +8,8 @@ metadata:
     app.kubernetes.io/name: mysql
 spec:
   ports:
-  - name: mysql
-    port: 3306
+    - name: mysql
+      port: 3306
   clusterIP: None
   selector:
     app: mysql
@@ -26,7 +26,7 @@ metadata:
     readonly: "true"
 spec:
   ports:
-  - name: mysql
-    port: 3306
+    - name: mysql
+      port: 3306
   selector:
     app: mysql
