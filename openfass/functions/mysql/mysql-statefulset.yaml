@@ -158,13 +158,6 @@ spec:
         - name: config-map
           configMap:
             name: mysql
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        storageClassName: manual
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 20Gi
+        - name: data
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
