@@ -41,7 +41,14 @@ cd fibonacci
 fission fn create --name fibonacci-single --env python --code fibonacci.py --executortype newdeploy --minscale 1 --maxscale 1
 fission route create --method GET --url /fibonacci-single --function fibonacci-single
 curl http://10.4.110.208:31314/fibonacci-single?x=10
+hey -z 60s -c 10 http://10.4.110.208:31314/fibonacci-single?x=1000
+hey -z 300s -c 10 http://10.4.110.208:31314/fibonacci-single?x=1000
+hey -z 300s -c 10 -o csv http://10.4.110.208:31314/fibonacci-single?x=1000 > fibonacci-single-10.csv
 hey -z 300s -c 50 http://10.4.110.208:31314/fibonacci-single?x=1000
+hey -z 300s -c 50 -o csv http://10.4.110.208:31314/fibonacci-single?x=1000 > fibonacci-single-50.csv
+hey -z 300s -c 150 http://10.4.110.208:31314/fibonacci-single?x=1000
+hey -z 300s -c 150 -o csv http://10.4.110.208:31314/fibonacci-single?x=1000 > fibonacci-single-150.csv
+
 # Multiple
 fission fn create --name fibonacci --env python --code fibonacci.py --executortype newdeploy --minscale 1 --maxscale 1000 --mincpu 200 --maxcpu 250 --minmemory 128 --maxmemory 256
 fission route create --method GET --url /fibonacci --function fibonacci

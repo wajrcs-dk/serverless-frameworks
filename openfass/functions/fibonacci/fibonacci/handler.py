@@ -3,6 +3,8 @@ def handle(req):
     Args:
         req (str): request body
     """
+    if not req:
+        req = "1000"
     nterms = int(req)
     n1, n2 = 0, 1
     count = 0

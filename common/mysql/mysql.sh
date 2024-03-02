@@ -15,9 +15,11 @@ kubectl apply -f mysql-statefulset.yaml
 
 # ssh
 kubectl exec -it mysql-client -- bin/sh
-kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client-2 -- mysql -h mysql-0.mysql
+kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql-0.mysql
 
 CREATE DATABASE dzhw;
+
+use dzhw;
 
 CREATE TABLE `users` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
