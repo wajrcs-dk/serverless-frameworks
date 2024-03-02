@@ -12,6 +12,8 @@ def handle(req):
     Args:
         req (str): request body
     """
+    if not req:
+        req = "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
     if isinstance(req, str):
         current_array = req.split(",")
         req = [int(numeric_string) for numeric_string in current_array]
