@@ -139,3 +139,242 @@ Status code distribution:
   [200] 189979 responses
 
 ---------------------------------------------------------------
+
+hey -z 300s -c 150 http://10.4.110.208:31314/fibonacci-single?x=1000
+
+Summary:
+  Total:        306.2687 secs
+  Slowest:      6.5955 secs
+  Fastest:      0.0088 secs
+  Average:      0.2536 secs
+  Requests/sec: 591.1737
+
+  Total data:   19111577190 bytes
+  Size/request: 105555 bytes
+
+Response time histogram:
+  0.009 [1]     |
+  0.667 [179707]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.326 [0]     |
+  1.985 [0]     |
+  2.643 [0]     |
+  3.302 [0]     |
+  3.961 [0]     |
+  4.620 [0]     |
+  5.278 [0]     |
+  5.937 [0]     |
+  6.596 [1350]  |
+
+
+Latency distribution:
+  10% in 0.1767 secs
+  25% in 0.1821 secs
+  50% in 0.1977 secs
+  75% in 0.2344 secs
+  90% in 0.2450 secs
+  95% in 0.2536 secs
+  99% in 0.2922 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0088 secs, 6.5955 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0062 secs
+  resp wait:    0.2515 secs, 0.0079 secs, 6.5942 secs
+  resp read:    0.0021 secs, 0.0000 secs, 0.2101 secs
+
+Status code distribution:
+  [200] 181058 responses
+
+---------------------------------------------------------------
+Multiple
+---------------------------------------------------------------
+
+hey -z 60s -c 10 http://10.4.110.208:31314/fibonacci?x=1000
+
+Summary:
+  Total:        60.0195 secs
+  Slowest:      6.3224 secs
+  Fastest:      0.0043 secs
+  Average:      0.0714 secs
+  Requests/sec: 140.0379
+
+  Total data:   887189775 bytes
+  Size/request: 105555 bytes
+
+Response time histogram:
+  0.004 [1]     |
+  0.636 [8384]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.268 [0]     |
+  1.900 [0]     |
+  2.532 [0]     |
+  3.163 [0]     |
+  3.795 [0]     |
+  4.427 [0]     |
+  5.059 [0]     |
+  5.691 [0]     |
+  6.322 [20]    |
+
+
+Latency distribution:
+  10% in 0.0120 secs
+  25% in 0.0137 secs
+  50% in 0.0858 secs
+  75% in 0.0900 secs
+  90% in 0.0923 secs
+  95% in 0.0939 secs
+  99% in 0.0971 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0043 secs, 6.3224 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0005 secs
+  resp wait:    0.0701 secs, 0.0033 secs, 6.3201 secs
+  resp read:    0.0013 secs, 0.0000 secs, 0.0804 secs
+
+Status code distribution:
+  [200] 8405 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://10.4.110.208:31314/fibonacci?x=1000
+
+Summary:
+  Total:        300.0895 secs
+  Slowest:      6.6090 secs
+  Fastest:      0.0037 secs
+  Average:      0.0638 secs
+  Requests/sec: 156.6899
+
+  Total data:   4963301655 bytes
+  Size/request: 105555 bytes
+
+Response time histogram:
+  0.004 [1]     |
+  0.664 [46970] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.325 [0]     |
+  1.985 [0]     |
+  2.646 [0]     |
+  3.306 [0]     |
+  3.967 [0]     |
+  4.627 [0]     |
+  5.288 [0]     |
+  5.948 [0]     |
+  6.609 [50]    |
+
+
+Latency distribution:
+  10% in 0.0119 secs
+  25% in 0.0137 secs
+  50% in 0.0858 secs
+  75% in 0.0902 secs
+  90% in 0.0929 secs
+  95% in 0.0946 secs
+  99% in 0.0982 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0037 secs, 6.6090 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0012 secs
+  resp wait:    0.0625 secs, 0.0028 secs, 6.6078 secs
+  resp read:    0.0013 secs, 0.0000 secs, 0.2853 secs
+
+Status code distribution:
+  [200] 47021 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://10.4.110.208:31314/fibonacci?x=1000
+
+Summary:
+  Total:        300.2888 secs
+  Slowest:      6.6064 secs
+  Fastest:      0.0060 secs
+  Average:      0.2977 secs
+  Requests/sec: 167.8984
+
+  Total data:   5321871990 bytes
+  Size/request: 105555 bytes
+
+Response time histogram:
+  0.006 [1]     |
+  0.666 [50217] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.326 [0]     |
+  1.986 [0]     |
+  2.646 [0]     |
+  3.306 [0]     |
+  3.966 [0]     |
+  4.626 [0]     |
+  5.286 [0]     |
+  5.946 [0]     |
+  6.606 [200]   |
+
+
+Latency distribution:
+  10% in 0.2108 secs
+  25% in 0.2154 secs
+  50% in 0.2891 secs
+  75% in 0.2966 secs
+  90% in 0.3110 secs
+  95% in 0.3848 secs
+  99% in 0.3965 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0060 secs, 6.6064 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0061 secs
+  resp wait:    0.2963 secs, 0.0053 secs, 6.6049 secs
+  resp read:    0.0013 secs, 0.0001 secs, 0.2073 secs
+
+Status code distribution:
+  [200] 50418 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://10.4.110.208:31314/fibonacci?x=1000
+
+Summary:
+  Total:        300.8691 secs
+  Slowest:      10.8972 secs
+  Fastest:      0.0107 secs
+  Average:      0.8781 secs
+  Requests/sec: 134.0417
+
+  Total data:   4225261095 bytes
+  Size/request: 105555 bytes
+
+Response time histogram:
+  0.011 [1]     |
+  1.099 [38623] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.188 [655]   |■
+  3.277 [0]     |
+  4.365 [2]     |
+  5.454 [337]   |
+  6.543 [0]     |
+  7.631 [261]   |
+  8.720 [0]     |
+  9.809 [55]    |
+  10.897 [95]   |
+
+
+Latency distribution:
+  10% in 0.6114 secs
+  25% in 0.6924 secs
+  50% in 0.7940 secs
+  75% in 0.8693 secs
+  90% in 0.9149 secs
+  95% in 1.0789 secs
+  99% in 6.7908 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0107 secs, 10.8972 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0090 secs
+  resp wait:    0.8762 secs, 0.0073 secs, 10.8867 secs
+  resp read:    0.0018 secs, 0.0001 secs, 0.1470 secs
+
+Status code distribution:
+  [200] 40029 responses
+
+Error distribution:
+  [243] Get "http://10.4.110.208:31314/fibonacci?x=1000": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+  [57]  Get "http://10.4.110.208:31314/fibonacci?x=1000": dial tcp 10.4.110.208:31314: i/o timeout (Client.Timeout exceeded while awaiting headers)

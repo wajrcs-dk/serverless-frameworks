@@ -1,9 +1,376 @@
 
+hey -z 60s -c 10 http://10.4.110.208:31314/thumbnail-single
+
+Summary:
+  Total:        60.0621 secs
+  Slowest:      0.1355 secs
+  Fastest:      0.0413 secs
+  Average:      0.0784 secs
+  Requests/sec: 127.5514
+
+  Total data:   306440 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.041 [1]     |
+  0.051 [4]     |
+  0.060 [3]     |
+  0.070 [48]    |
+  0.079 [4874]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.088 [2385]  |■■■■■■■■■■■■■■■■■■■■
+  0.098 [261]   |■■
+  0.107 [53]    |
+  0.117 [21]    |
+  0.126 [3]     |
+  0.136 [8]     |
+
+
+Latency distribution:
+  10% in 0.0731 secs
+  25% in 0.0749 secs
+  50% in 0.0773 secs
+  75% in 0.0806 secs
+  90% in 0.0845 secs
+  95% in 0.0879 secs
+  99% in 0.0987 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0413 secs, 0.1355 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0010 secs
+  resp wait:    0.0783 secs, 0.0405 secs, 0.1354 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0005 secs
+
+Status code distribution:
+  [200] 7661 responses
 
 ---------------------------------------------------------------
 
+hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail-single
+
+Summary:
+  Total:        300.0617 secs
+  Slowest:      6.3842 secs
+  Fastest:      0.0214 secs
+  Average:      0.0793 secs
+  Requests/sec: 126.0274
+
+  Total data:   1512640 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.021 [1]     |
+  0.658 [37795] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.294 [0]     |
+  1.930 [0]     |
+  2.567 [0]     |
+  3.203 [0]     |
+  3.839 [0]     |
+  4.475 [0]     |
+  5.112 [0]     |
+  5.748 [0]     |
+  6.384 [20]    |
+
+
+Latency distribution:
+  10% in 0.0714 secs
+  25% in 0.0727 secs
+  50% in 0.0746 secs
+  75% in 0.0777 secs
+  90% in 0.0822 secs
+  95% in 0.0861 secs
+  99% in 0.0984 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0214 secs, 6.3842 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0022 secs
+  resp wait:    0.0792 secs, 0.0203 secs, 6.3841 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0009 secs
+
+Status code distribution:
+  [200] 37816 responses
 
 ---------------------------------------------------------------
 
+hey -z 300s -c 50 http://10.4.110.208:31314/thumbnail-single
+
+Summary:
+  Total:        300.3499 secs
+  Slowest:      6.7609 secs
+  Fastest:      0.0196 secs
+  Average:      0.4066 secs
+  Requests/sec: 122.8867
+
+  Total data:   1476360 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.020 [1]     |
+  0.694 [36708] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.368 [0]     |
+  2.042 [0]     |
+  2.716 [0]     |
+  3.390 [0]     |
+  4.064 [0]     |
+  4.739 [15]    |
+  5.413 [26]    |
+  6.087 [0]     |
+  6.761 [159]   |
+
+
+Latency distribution:
+  10% in 0.3629 secs
+  25% in 0.3693 secs
+  50% in 0.3776 secs
+  75% in 0.3879 secs
+  90% in 0.4010 secs
+  95% in 0.4123 secs
+  99% in 0.4836 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0196 secs, 6.7609 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0022 secs
+  resp wait:    0.4065 secs, 0.0194 secs, 6.7608 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0010 secs
+
+Status code distribution:
+  [200] 36909 responses
 
 ---------------------------------------------------------------
+
+hey -z 300s -c 150 http://10.4.110.208:31314/thumbnail-single
+
+Summary:
+  Total:        301.1124 secs
+  Slowest:      7.5320 secs
+  Fastest:      0.0333 secs
+  Average:      1.2649 secs
+  Requests/sec: 118.3611
+
+  Total data:   1425600 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.033 [1]     |
+  0.783 [254]   |
+  1.533 [34185] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.283 [0]     |
+  3.033 [0]     |
+  3.783 [0]     |
+  4.533 [66]    |
+  5.282 [751]   |■
+  6.032 [63]    |
+  6.782 [0]     |
+  7.532 [320]   |
+
+
+Latency distribution:
+  10% in 1.0820 secs
+  25% in 1.1007 secs
+  50% in 1.1231 secs
+  75% in 1.1519 secs
+  90% in 1.1861 secs
+  95% in 1.2605 secs
+  99% in 5.3833 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0333 secs, 7.5320 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0100 secs
+  resp wait:    1.2648 secs, 0.0332 secs, 7.5320 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0012 secs
+
+Status code distribution:
+  [200] 35640 responses
+
+---------------------------------------------------------------
+Multiple
+---------------------------------------------------------------
+
+hey -z 60s -c 10 http://10.4.110.208:31314/thumbnail
+
+Summary:
+  Total:        60.2487 secs
+  Slowest:      0.4704 secs
+  Fastest:      0.0910 secs
+  Average:      0.3292 secs
+  Requests/sec: 30.3243
+
+  Total data:   73080 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.091 [1]     |
+  0.129 [1]     |
+  0.167 [1]     |
+  0.205 [2]     |
+  0.243 [7]     |
+  0.281 [7]     |
+  0.319 [1245]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.357 [16]    |■
+  0.394 [501]   |■■■■■■■■■■■■■■■■
+  0.432 [42]    |■
+  0.470 [4]     |
+
+
+Latency distribution:
+  10% in 0.3012 secs
+  25% in 0.3040 secs
+  50% in 0.3081 secs
+  75% in 0.3808 secs
+  90% in 0.3872 secs
+  95% in 0.3912 secs
+  99% in 0.3992 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0910 secs, 0.4704 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0003 secs
+  resp wait:    0.3291 secs, 0.0910 secs, 0.4703 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0002 secs
+
+Status code distribution:
+  [200] 1827 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail
+
+Summary:
+  Total:        300.2939 secs
+  Slowest:      6.6093 secs
+  Fastest:      0.0104 secs
+  Average:      0.3310 secs
+  Requests/sec: 30.1937
+
+  Total data:   362680 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.010 [1]     |
+  0.670 [9056]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.330 [0]     |
+  1.990 [0]     |
+  2.650 [0]     |
+  3.310 [0]     |
+  3.970 [0]     |
+  4.630 [0]     |
+  5.290 [0]     |
+  5.949 [0]     |
+  6.609 [10]    |
+
+
+Latency distribution:
+  10% in 0.3007 secs
+  25% in 0.3031 secs
+  50% in 0.3064 secs
+  75% in 0.3660 secs
+  90% in 0.3849 secs
+  95% in 0.3884 secs
+  99% in 0.3952 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0104 secs, 6.6093 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0003 secs
+  resp wait:    0.3309 secs, 0.0104 secs, 6.6092 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0006 secs
+
+Status code distribution:
+  [200] 9067 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://10.4.110.208:31314/thumbnail
+
+Summary:
+  Total:        301.5535 secs
+  Slowest:      1.8830 secs
+  Fastest:      0.2460 secs
+  Average:      1.6198 secs
+  Requests/sec: 30.7906
+
+  Total data:   371400 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.246 [1]     |
+  0.410 [14]    |
+  0.573 [6]     |
+  0.737 [3]     |
+  0.901 [7]     |
+  1.064 [5]     |
+  1.228 [4]     |
+  1.392 [9]     |
+  1.556 [915]   |■■■■■
+  1.719 [8050]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.883 [271]   |■
+
+
+Latency distribution:
+  10% in 1.5234 secs
+  25% in 1.5962 secs
+  50% in 1.6053 secs
+  75% in 1.6853 secs
+  90% in 1.6987 secs
+  95% in 1.7062 secs
+  99% in 1.7928 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.2460 secs, 1.8830 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0012 secs
+  resp wait:    1.6196 secs, 0.2440 secs, 1.8829 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0015 secs
+
+Status code distribution:
+  [200] 9285 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://10.4.110.208:31314/thumbnail
+
+Summary:
+  Total:        304.9113 secs
+  Slowest:      11.0026 secs
+  Fastest:      0.0259 secs
+  Average:      4.8075 secs
+  Requests/sec: 30.9434
+
+  Total data:   377400 bytes
+  Size/request: 40 bytes
+
+Response time histogram:
+  0.026 [1]     |
+  1.124 [36]    |
+  2.221 [34]    |
+  3.319 [58]    |
+  4.417 [90]    |
+  5.514 [9172]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  6.612 [16]    |
+  7.710 [19]    |
+  8.807 [0]     |
+  9.905 [0]     |
+  11.003 [9]    |
+
+
+Latency distribution:
+  10% in 4.7019 secs
+  25% in 4.7851 secs
+  50% in 4.8145 secs
+  75% in 4.9041 secs
+  90% in 4.9906 secs
+  95% in 5.0035 secs
+  99% in 5.1763 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0001 secs, 0.0259 secs, 11.0026 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0037 secs
+  resp wait:    4.8073 secs, 0.0209 secs, 11.0025 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0006 secs
+
+Status code distribution:
+  [200] 9435 responses

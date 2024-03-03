@@ -1,0 +1,186 @@
+
+hey -z 60s -c 10 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
+
+Summary:
+  Total:        60.0310 secs
+  Slowest:      0.2681 secs
+  Fastest:      0.0187 secs
+  Average:      0.0432 secs
+  Requests/sec: 231.3971
+
+  Total data:   2736527 bytes
+  Size/request: 197 bytes
+
+Response time histogram:
+  0.019 [1]     |
+  0.044 [7825]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.069 [4641]  |■■■■■■■■■■■■■■■■■■■■■■■■
+  0.094 [1205]  |■■■■■■
+  0.118 [185]   |■
+  0.143 [28]    |
+  0.168 [5]     |
+  0.193 [0]     |
+  0.218 [0]     |
+  0.243 [0]     |
+  0.268 [1]     |
+
+
+Latency distribution:
+  10% in 0.0224 secs
+  25% in 0.0268 secs
+  50% in 0.0402 secs
+  75% in 0.0543 secs
+  90% in 0.0690 secs
+  95% in 0.0786 secs
+  99% in 0.0994 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0187 secs, 0.2681 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0005 secs
+  resp wait:    0.0431 secs, 0.0187 secs, 0.2680 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0007 secs
+
+Status code distribution:
+  [200] 13891 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
+
+Summary:
+  Total:        300.0313 secs
+  Slowest:      0.2321 secs
+  Fastest:      0.0188 secs
+  Average:      0.0385 secs
+  Requests/sec: 259.8195
+
+  Total data:   15356938 bytes
+  Size/request: 197 bytes
+
+Response time histogram:
+  0.019 [1]     |
+  0.040 [48630] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.061 [22041] |■■■■■■■■■■■■■■■■■■
+  0.083 [5759]  |■■■■■
+  0.104 [1211]  |■
+  0.125 [249]   |
+  0.147 [45]    |
+  0.168 [14]    |
+  0.189 [1]     |
+  0.211 [0]     |
+  0.232 [3]     |
+
+
+Latency distribution:
+  10% in 0.0223 secs
+  25% in 0.0255 secs
+  50% in 0.0340 secs
+  75% in 0.0473 secs
+  90% in 0.0605 secs
+  95% in 0.0700 secs
+  99% in 0.0919 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0188 secs, 0.2321 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0020 secs
+  resp wait:    0.0384 secs, 0.0187 secs, 0.2320 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0026 secs
+
+Status code distribution:
+  [200] 77954 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
+
+Summary:
+  Total:        300.1578 secs
+  Slowest:      1.4175 secs
+  Fastest:      0.0189 secs
+  Average:      0.1948 secs
+  Requests/sec: 256.5951
+
+  Total data:   15172743 bytes
+  Size/request: 197 bytes
+
+Response time histogram:
+  0.019 [1]     |
+  0.159 [40271] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.299 [17613] |■■■■■■■■■■■■■■■■■
+  0.439 [10606] |■■■■■■■■■■■
+  0.578 [5248]  |■■■■■
+  0.718 [2250]  |■■
+  0.858 [745]   |■
+  0.998 [216]   |
+  1.138 [54]    |
+  1.278 [11]    |
+  1.418 [4]     |
+
+
+Latency distribution:
+  10% in 0.0230 secs
+  25% in 0.0360 secs
+  50% in 0.1450 secs
+  75% in 0.2977 secs
+  90% in 0.4549 secs
+  95% in 0.5563 secs
+  99% in 0.7516 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0189 secs, 1.4175 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0047 secs
+  resp wait:    0.1947 secs, 0.0188 secs, 1.4175 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0025 secs
+
+Status code distribution:
+  [200] 77019 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
+
+Summary:
+  Total:        300.4642 secs
+  Slowest:      7.4638 secs
+  Fastest:      0.0187 secs
+  Average:      0.5770 secs
+  Requests/sec: 259.7913
+
+  Total data:   15377426 bytes
+  Size/request: 197 bytes
+
+Response time histogram:
+  0.019 [1]     |
+  0.763 [55851] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.508 [14850] |■■■■■■■■■■■
+  2.252 [4715]  |■■■
+  2.997 [1634]  |■
+  3.741 [632]   |
+  4.486 [238]   |
+  5.230 [88]    |
+  5.975 [35]    |
+  6.719 [9]     |
+  7.464 [5]     |
+
+
+Latency distribution:
+  10% in 0.0238 secs
+  25% in 0.0424 secs
+  50% in 0.3431 secs
+  75% in 0.8518 secs
+  90% in 1.4666 secs
+  95% in 1.9580 secs
+  99% in 3.1723 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0187 secs, 7.4638 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0045 secs
+  resp wait:    0.5769 secs, 0.0186 secs, 7.4637 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0036 secs
+
+Status code distribution:
+  [200] 78058 responses

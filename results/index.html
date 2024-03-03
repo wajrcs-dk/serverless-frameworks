@@ -1,0 +1,209 @@
+<!doctype html>
+<html class="no-js" lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="language" content="German">
+    <title>Serverless Frameworks</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://dzhw-charts/assets/images/favicon.ico?v=1.0.0">
+    <link rel="stylesheet" href="https://dzhw-charts/assets/styles/main.css?v=1.0.0">
+    <script src="https://dzhw-charts/assets/scripts/apexcharts.js?v=1.0.0"></script>
+    <script src="https://dzhw-charts/assets/scripts/jquery.min.js?v=1.0.0"></script>
+</head>
+<body class="m0 hvr fw4 ">
+<div class="c pt65">
+    <header class="pt10 pf zi3 w100p pt0 pl0 df bg4">
+        <div class="fg df jcc">
+            <ul class="pagination">
+                <li class="jcc">
+                    <a></a>
+                    <a id="page1" class="page-item page-numbers cp" href="index.html?page=1"></a>
+                    <a id="page2" class="page-item page-numbers cp" href="index.html?page=2"></a>
+                    <a id="page3" class="page-item page-numbers cp" href="index.html?page=3"></a>
+                    <a id="page4" class="page-item page-numbers cp" href="index.html?page=4"></a>
+                    <a></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <h2 id="title" class="c5 pb5">Fibonacci</h2>
+    <h3>Single</h3>
+    <div class="pt15 pb15" id="chart-1"></div>
+    <h3>Multiple</h3>
+    <div class="pt15 pb15" id="chart-2"></div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let myParam = urlParams.get('page');
+        if (!myParam) {
+            myParam = "1";
+        }
+        if (myParam === "1") {
+            $('#title').html('Fibonacci');
+            $('#page'+myParam).addClass('current');
+            let fissionSingle = [164535, 189979, 181058];
+            fissionSingle[3] = avg(fissionSingle);
+            let knativeSingle = [0, 0, 0];
+            knativeSingle[3] = avg(knativeSingle);
+            let nuclioSingle = [0, 0, 0];
+            nuclioSingle[3] = avg(nuclioSingle);
+            let openFaaSSingle = [62619, 64819, 64690];
+            openFaaSSingle[3] = avg(openFaaSSingle);
+            let openWhiskSingle = [0, 0, 0];
+            openWhiskSingle[3] = avg(openWhiskSingle);
+            renderChart("#chart-1", fissionSingle, knativeSingle, nuclioSingle, openFaaSSingle, openWhiskSingle);
+            let fissionMultiple = [47021, 50418, 40029];
+            fissionMultiple[3] = avg(fissionMultiple);
+            let knativeMultiple = [0, 0, 0];
+            knativeMultiple[3] = avg(knativeMultiple);
+            let nuclioMultiple = [0, 0, 0];
+            nuclioMultiple[3] = avg(nuclioMultiple);
+            let openFaaSMultiple = [0, 0, 0];
+            openFaaSMultiple[3] = avg(openFaaSMultiple);
+            let openWhiskMultiple = [0, 0, 0];
+            openWhiskMultiple[3] = avg(openWhiskMultiple);
+            renderChart("#chart-2", fissionMultiple, knativeMultiple, nuclioMultiple, openFaaSMultiple, openWhiskMultiple);
+        }
+        if (myParam === "2") {
+            $('#title').html('Quicksort');
+            $('#page'+myParam).addClass('current');
+            let fissionSingle = [466268, 486491, 447785];
+            fissionSingle[3] = avg(fissionSingle);
+            let knativeSingle = [0, 0, 0];
+            knativeSingle[3] = avg(knativeSingle);
+            let nuclioSingle = [0, 0, 0];
+            nuclioSingle[3] = avg(nuclioSingle);
+            let openFaaSSingle = [77954, 77019, 78058];
+            openFaaSSingle[3] = avg(openFaaSSingle);
+            let openWhiskSingle = [0, 0, 0];
+            openWhiskSingle[3] = avg(openWhiskSingle);
+            renderChart("#chart-1", fissionSingle, knativeSingle, nuclioSingle, openFaaSSingle, openWhiskSingle);
+            let fissionMultiple = [130079, 122180, 139634];
+            fissionMultiple[3] = avg(fissionMultiple);
+            let knativeMultiple = [0, 0, 0];
+            knativeMultiple[3] = avg(knativeMultiple);
+            let nuclioMultiple = [0, 0, 0];
+            nuclioMultiple[3] = avg(nuclioMultiple);
+            let openFaaSMultiple = [0, 0, 0];
+            openFaaSMultiple[3] = avg(openFaaSMultiple);
+            let openWhiskMultiple = [0, 0, 0];
+            openWhiskMultiple[3] = avg(openWhiskMultiple);
+            renderChart("#chart-2", fissionMultiple, knativeMultiple, nuclioMultiple, openFaaSMultiple, openWhiskMultiple);
+        }
+        if (myParam === "3") {
+            $('#title').html('Thumbnail');
+            $('#page'+myParam).addClass('current');
+            let fissionSingle = [37816, 36909, 35640];
+            fissionSingle[3] = avg(fissionSingle);
+            let knativeSingle = [0, 0, 0];
+            knativeSingle[3] = avg(knativeSingle);
+            let nuclioSingle = [0, 0, 0];
+            nuclioSingle[3] = avg(nuclioSingle);
+            let openFaaSSingle = [5358, 5339, 321];
+            openFaaSSingle[3] = avg(openFaaSSingle);
+            let openWhiskSingle = [0, 0, 0];
+            openWhiskSingle[3] = avg(openWhiskSingle);
+            renderChart("#chart-1", fissionSingle, knativeSingle, nuclioSingle, openFaaSSingle, openWhiskSingle);
+            let fissionMultiple = [9067, 9285, 9435];
+            fissionMultiple[3] = avg(fissionMultiple);
+            let knativeMultiple = [0, 0, 0];
+            knativeMultiple[3] = avg(knativeMultiple);
+            let nuclioMultiple = [0, 0, 0];
+            nuclioMultiple[3] = avg(nuclioMultiple);
+            let openFaaSMultiple = [0, 0, 0];
+            openFaaSMultiple[3] = avg(openFaaSMultiple);
+            let openWhiskMultiple = [0, 0, 0];
+            openWhiskMultiple[3] = avg(openWhiskMultiple);
+            renderChart("#chart-2", fissionMultiple, knativeMultiple, nuclioMultiple, openFaaSMultiple, openWhiskMultiple);
+        }
+        if (myParam === "4") {
+            $('#title').html('Users');
+            $('#page'+myParam).addClass('current');
+            let fissionSingle = [0, 0, 0];
+            fissionSingle[3] = avg(fissionSingle);
+            let knativeSingle = [0, 0, 0];
+            knativeSingle[3] = avg(knativeSingle);
+            let nuclioSingle = [0, 0, 0];
+            nuclioSingle[3] = avg(nuclioSingle);
+            let openFaaSSingle = [12949, 13516, 13524];
+            openFaaSSingle[3] = avg(openFaaSSingle);
+            let openWhiskSingle = [0, 0, 0];
+            openWhiskSingle[3] = avg(openWhiskSingle);
+            renderChart("#chart-1", fissionSingle, knativeSingle, nuclioSingle, openFaaSSingle, openWhiskSingle);
+            let fissionMultiple = [0, 0, 0];
+            fissionMultiple[3] = avg(fissionMultiple);
+            let knativeMultiple = [0, 0, 0];
+            knativeMultiple[3] = avg(knativeMultiple);
+            let nuclioMultiple = [0, 0, 0];
+            nuclioMultiple[3] = avg(nuclioMultiple);
+            let openFaaSMultiple = [0, 0, 0];
+            openFaaSMultiple[3] = avg(openFaaSMultiple);
+            let openWhiskMultiple = [0, 0, 0];
+            openWhiskMultiple[3] = avg(openWhiskMultiple);
+            renderChart("#chart-2", fissionMultiple, knativeMultiple, nuclioMultiple, openFaaSMultiple, openWhiskMultiple);
+        }
+        function avg(arr) {
+            return Math.floor( (arr[0] + arr[1] + arr[2]) / 3 );
+        }
+        function renderChart(chartId, fission, knative, nuclio, openFaaS, openWhisk) {
+            const options = {
+                series: [{
+                    name: 'Fission',
+                    data: fission
+                }, {
+                    name: 'Knative',
+                    data: knative
+                }, {
+                    name: 'Nuclio',
+                    data: nuclio
+                }, {
+                    name: 'OpenFaaS',
+                    data: openFaaS
+                }, {
+                    name: 'OpenWhisk',
+                    data: openWhisk
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 350
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded'
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['10 Users', '50 Users', '150 Users', 'Average Users'],
+                },
+                yaxis: {
+                    title: {
+                        text: 'Requests'
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                tooltip: {
+                    y: {
+                        formatter: function (val) {
+                            return val + " Requests"
+                        }
+                    }
+                }
+            };
+            const chart = new ApexCharts(document.querySelector(chartId), options);
+            chart.render();
+        }
+    </script>
+</div>
+</body>
+</html>
