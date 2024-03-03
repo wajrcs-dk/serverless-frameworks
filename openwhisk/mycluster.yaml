@@ -31,9 +31,6 @@ whisk:
     activation:
       payload:
         max: "1048576"
-    loadbalancer:
-      blackboxFraction: "10%"
-      timeoutFactor: 2
 k8s:
   persistence:
     enabled: false
