@@ -41,8 +41,11 @@ sudo nuctl deploy fibonacci-single \
 	--handler fibonacci:handler \
 	--http-trigger-service-type NodePort \
 	--registry docker.io/wajrcs
-curl http://0.0.0.0:31438
-hey -z 300s -c 50 http://0.0.0.0:31438
+curl http://0.0.0.0:32768
+X hey -z 60s -c 10 http://0.0.0.0:32768
+X hey -z 300s -c 10 http://0.0.0.0:32768
+X hey -z 300s -c 50 http://0.0.0.0:32768
+X hey -z 300s -c 150 http://0.0.0.0:32768
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -53,8 +56,11 @@ sudo nuctl deploy fibonacci \
 	--handler fibonacci:handler \
 	--http-trigger-service-type NodePort \
 	--registry docker.io/wajrcs
-curl http://0.0.0.0:31438
-hey -z 300s -c 50 http://0.0.0.0:31438
+curl http://0.0.0.0:32769
+X hey -z 60s -c 10 http://0.0.0.0:32769
+X hey -z 300s -c 10 http://0.0.0.0:32769
+X hey -z 300s -c 50 http://0.0.0.0:32769
+X hey -z 300s -c 150 http://0.0.0.0:32769
 
 # Quicksort
 cd quicksort
@@ -68,7 +74,10 @@ sudo nuctl deploy quicksort-single \
 	--http-trigger-service-type NodePort \
 	--registry docker.io/wajrcs
 curl http://0.0.0.0:32770
-hey -z 300s -c 50 http://0.0.0.0:32770
+X hey -z 60s -c 10 http://0.0.0.0:32770
+X hey -z 300s -c 10 http://0.0.0.0:32770
+X hey -z 300s -c 50 http://0.0.0.0:32770
+X hey -z 300s -c 150 http://0.0.0.0:32770
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -80,22 +89,30 @@ sudo nuctl deploy quicksort \
 	--http-trigger-service-type NodePort \
 	--registry docker.io/wajrcs
 curl http://0.0.0.0:32771
-hey -z 300s -c 50 http://0.0.0.0:32771
+X hey -z 60s -c 10 http://0.0.0.0:32771
+X hey -z 300s -c 10 http://0.0.0.0:32770
+X hey -z 300s -c 50 http://0.0.0.0:32770
+X hey -z 300s -c 150 http://0.0.0.0:32770
 
 # Users
 cd users
 # Single
-docker build -t 0.0.0.0:5000/users:v1 .
-docker push 0.0.0.0:5000/users:v1
-mv function-single.yaml function.yaml
-nuctl deploy users-single \
+sudo docker build -t users:v1 .
+sudo docker push users:v1
+cp function-single.yaml function.yaml
+sudo nuctl deploy users-single \
   --verbose \
   --namespace nuclio \
+  --path /home/waqar/serverless-frameworks/nuclio/functions/users/users.py \
   --runtime python \
   --handler users:handler \
-  --run-image users:v1 \
   --http-trigger-service-type NodePort \
-  --registry 0.0.0.0:5000 --run-registry localhost:5000
+  --registry docker.io/wajrcs
+curl http://0.0.0.0:32771
+X hey -z 60s -c 10 http://0.0.0.0:32771
+X hey -z 300s -c 10 http://0.0.0.0:32770
+X hey -z 300s -c 50 http://0.0.0.0:32770
+X hey -z 300s -c 150 http://0.0.0.0:32770
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -125,7 +142,10 @@ sudo nuctl deploy thumbnail-single \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
 curl  http://0.0.0.0:32772
-hey -z 300s -c 50  http://0.0.0.0:32772
+X hey -z 60s -c 10  http://0.0.0.0:32772
+X hey -z 300s -c 10  http://0.0.0.0:32772
+X hey -z 300s -c 50  http://0.0.0.0:32772
+X hey -z 300s -c 150  http://0.0.0.0:32772
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -138,4 +158,7 @@ sudo nuctl deploy thumbnail \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
 curl  http://0.0.0.0:32773
-hey -z 300s -c 50  http://0.0.0.0:32773
+X hey -z 60s -c 10  http://0.0.0.0:32773
+X hey -z 300s -c 10  http://0.0.0.0:32773
+X hey -z 300s -c 50  http://0.0.0.0:32773
+hey -z 300s -c 150  http://0.0.0.0:32773

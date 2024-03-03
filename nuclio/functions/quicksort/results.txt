@@ -1,0 +1,375 @@
+hey -z 60s -c 10 http://0.0.0.0:32770
+
+Summary:
+  Total:        60.0061 secs
+  Slowest:      0.0359 secs
+  Fastest:      0.0005 secs
+  Average:      0.0053 secs
+  Requests/sec: 1900.2899
+
+  Total data:   22349684 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.000 [1]     |
+  0.004 [12765] |■■■■■
+  0.008 [93959] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.011 [5635]  |■■
+  0.015 [1132]  |
+  0.018 [335]   |
+  0.022 [118]   |
+  0.025 [48]    |
+  0.029 [26]    |
+  0.032 [7]     |
+  0.036 [3]     |
+
+
+Latency distribution:
+  10% in 0.0039 secs
+  25% in 0.0044 secs
+  50% in 0.0049 secs
+  75% in 0.0055 secs
+  90% in 0.0067 secs
+  95% in 0.0080 secs
+  99% in 0.0123 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0005 secs, 0.0359 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0018 secs
+  resp wait:    0.0052 secs, 0.0004 secs, 0.0359 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0030 secs
+
+Status code distribution:
+  [200] 114029 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.0061 secs
+  Slowest:      0.0490 secs
+  Fastest:      0.0005 secs
+  Average:      0.0053 secs
+  Requests/sec: 1878.8587
+
+  Total data:   110479124 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.001 [1]     |
+  0.005 [370781]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.010 [180323]        |■■■■■■■■■■■■■■■■■■■
+  0.015 [10103] |■
+  0.020 [1932]  |
+  0.025 [394]   |
+  0.030 [96]    |
+  0.034 [25]    |
+  0.039 [7]     |
+  0.044 [0]     |
+  0.049 [7]     |
+
+
+Latency distribution:
+  10% in 0.0039 secs
+  25% in 0.0045 secs
+  50% in 0.0050 secs
+  75% in 0.0057 secs
+  90% in 0.0069 secs
+  95% in 0.0082 secs
+  99% in 0.0124 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0005 secs, 0.0490 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0064 secs
+  resp wait:    0.0053 secs, 0.0005 secs, 0.0489 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0041 secs
+
+Status code distribution:
+  [200] 563669 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.0296 secs
+  Slowest:      0.1154 secs
+  Fastest:      0.0059 secs
+  Average:      0.0263 secs
+  Requests/sec: 1904.2519
+
+  Total data:   111981072 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.006 [1]     |
+  0.017 [7541]  |■
+  0.028 [394975]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.039 [151842]        |■■■■■■■■■■■■■■■
+  0.050 [14623] |■
+  0.061 [1845]  |
+  0.072 [320]   |
+  0.083 [87]    |
+  0.093 [23]    |
+  0.104 [33]    |
+  0.115 [42]    |
+
+
+Latency distribution:
+  10% in 0.0205 secs
+  25% in 0.0230 secs
+  50% in 0.0254 secs
+  75% in 0.0286 secs
+  90% in 0.0327 secs
+  95% in 0.0361 secs
+  99% in 0.0448 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0059 secs, 0.1154 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0067 secs
+  resp wait:    0.0262 secs, 0.0032 secs, 0.1154 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0081 secs
+
+Status code distribution:
+  [200] 571332 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.0748 secs
+  Slowest:      0.1921 secs
+  Fastest:      0.0093 secs
+  Average:      0.0792 secs
+  Requests/sec: 1892.7416
+
+  Total data:   111320944 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.009 [1]     |
+  0.028 [6]     |
+  0.046 [23]    |
+  0.064 [72211] |■■■■■■■■■■
+  0.082 [288101]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.101 [171049]        |■■■■■■■■■■■■■■■■■■■■■■■■
+  0.119 [29970] |■■■■
+  0.137 [5137]  |■
+  0.156 [1145]  |
+  0.174 [201]   |
+  0.192 [120]   |
+
+
+Latency distribution:
+  10% in 0.0625 secs
+  25% in 0.0704 secs
+  50% in 0.0783 secs
+  75% in 0.0868 secs
+  90% in 0.0961 secs
+  95% in 0.1030 secs
+  99% in 0.1209 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0093 secs, 0.1921 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0135 secs
+  resp wait:    0.0792 secs, 0.0069 secs, 0.1921 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0115 secs
+
+Status code distribution:
+  [200] 567964 responses
+
+---------------------------------------------------------------
+Multiple
+---------------------------------------------------------------
+
+hey -z 60s -c 10 http://0.0.0.0:32771
+
+Summary:
+  Total:        60.0041 secs
+  Slowest:      0.0382 secs
+  Fastest:      0.0005 secs
+  Average:      0.0051 secs
+  Requests/sec: 1969.9836
+
+  Total data:   23168572 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.000 [1]     |
+  0.004 [27400] |■■■■■■■■■■■■■
+  0.008 [85679] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.012 [3917]  |■■
+  0.016 [922]   |
+  0.019 [212]   |
+  0.023 [46]    |
+  0.027 [18]    |
+  0.031 [7]     |
+  0.034 [3]     |
+  0.038 [2]     |
+
+
+Latency distribution:
+  10% in 0.0037 secs
+  25% in 0.0043 secs
+  50% in 0.0048 secs
+  75% in 0.0054 secs
+  90% in 0.0065 secs
+  95% in 0.0077 secs
+  99% in 0.0118 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0005 secs, 0.0382 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0029 secs
+  resp wait:    0.0050 secs, 0.0004 secs, 0.0381 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0026 secs
+
+Status code distribution:
+  [200] 118207 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.0075 secs
+  Slowest:      0.0669 secs
+  Fastest:      0.0005 secs
+  Average:      0.0052 secs
+  Requests/sec: 1937.9614
+
+  Total data:   113954988 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.001 [1]     |
+  0.007 [539241]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.014 [39181] |■■■
+  0.020 [2607]  |
+  0.027 [273]   |
+  0.034 [52]    |
+  0.040 [12]    |
+  0.047 [6]     |
+  0.054 [13]    |
+  0.060 [11]    |
+  0.067 [6]     |
+
+
+Latency distribution:
+  10% in 0.0038 secs
+  25% in 0.0044 secs
+  50% in 0.0048 secs
+  75% in 0.0055 secs
+  90% in 0.0066 secs
+  95% in 0.0079 secs
+  99% in 0.0119 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0005 secs, 0.0669 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0038 secs
+  resp wait:    0.0051 secs, 0.0005 secs, 0.0668 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0032 secs
+
+Status code distribution:
+  [200] 581403 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.0267 secs
+  Slowest:      0.0998 secs
+  Fastest:      0.0024 secs
+  Average:      0.0261 secs
+  Requests/sec: 1919.0289
+
+  Total data:   112848960 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  0.012 [15]    |
+  0.022 [110568]        |■■■■■■■■■■■
+  0.032 [394217]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.041 [59101] |■■■■■■
+  0.051 [9432]  |■
+  0.061 [1644]  |
+  0.071 [526]   |
+  0.080 [155]   |
+  0.090 [73]    |
+  0.100 [28]    |
+
+
+Latency distribution:
+  10% in 0.0200 secs
+  25% in 0.0227 secs
+  50% in 0.0252 secs
+  75% in 0.0283 secs
+  90% in 0.0327 secs
+  95% in 0.0365 secs
+  99% in 0.0456 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0024 secs, 0.0998 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0052 secs
+  resp wait:    0.0260 secs, 0.0013 secs, 0.0998 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0053 secs
+
+Status code distribution:
+  [200] 575760 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.0706 secs
+  Slowest:      0.1912 secs
+  Fastest:      0.0067 secs
+  Average:      0.0796 secs
+  Requests/sec: 1885.2561
+
+  Total data:   110879160 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.007 [1]     |
+  0.025 [14]    |
+  0.044 [38]    |
+  0.062 [45162] |■■■■■■
+  0.080 [281023]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.099 [194408]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.117 [37412] |■■■■■
+  0.136 [6447]  |■
+  0.154 [845]   |
+  0.173 [185]   |
+  0.191 [175]   |
+
+
+Latency distribution:
+  10% in 0.0636 secs
+  25% in 0.0710 secs
+  50% in 0.0782 secs
+  75% in 0.0870 secs
+  90% in 0.0966 secs
+  95% in 0.1036 secs
+  99% in 0.1204 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0067 secs, 0.1912 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0170 secs
+  resp wait:    0.0795 secs, 0.0021 secs, 0.1911 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0089 secs
+
+Status code distribution:
+  [200] 565710 responses
