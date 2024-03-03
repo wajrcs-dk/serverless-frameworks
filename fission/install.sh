@@ -87,11 +87,11 @@ X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-
 
 # Users
 cd users
-docker build -t wajrcs/python-env --build-arg PY_BASE_IMG=3.7-alpine -f Dockerfile .
-docker push wajrcs/python-env
-fission env create --name users --image wajrcs/python-env --builder fission/python-builder:latest
+docker build -t wajrcs/python-users-env --build-arg PY_BASE_IMG=3.7-alpine -f Dockerfile .
+docker push wajrcs/python-users-env
+fission env create --name env-users --image wajrcs/python-users-env --builder fission/python-builder:latest
 # Single
-fission function create --name users-single --env users --code users.py --executortype newdeploy --minscale 1 --maxscale 1
+fission function create --name users-single --env env-users --code users.py --executortype newdeploy --minscale 1 --maxscale 1
 fission function test --name users-single
 fission route create --method GET --url /users-single --function users-single
 fission route create --url /users-single --function users-single --createingress --ingressannotation "kubernetes.io/ingress.class=nginx"
@@ -101,7 +101,7 @@ hey -z 300s -c 10 http://10.4.110.208:31314/users-single
 hey -z 300s -c 50 http://10.4.110.208:31314/users-single
 hey -z 300s -c 150 http://10.4.110.208:31314/users-single
 # Multiple
-fission function create --name users --env users --code users.py --executortype newdeploy --minscale 1 --maxscale 1000 --mincpu 200 --maxcpu 250 --minmemory 128 --maxmemory 256
+fission function create --name users --env env-users --code users.py --executortype newdeploy --minscale 1 --maxscale 1000 --mincpu 200 --maxcpu 250 --minmemory 128 --maxmemory 256
 fission route create --method GET --url /users --function users
 curl http://10.4.110.208:31314/users
 hey -z 60s -c 10 http://10.4.110.208:31314/users
