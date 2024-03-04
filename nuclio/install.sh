@@ -3,6 +3,7 @@
 # Source
 # https://nuclio.io/docs/latest/setup/k8s/getting-started-k8s/
 # https://nuclio.io/docs/latest/setup/k8s/running-in-production-k8s/
+# https://github.com/nuclio/nuclio/blob/development/docs/reference/function-configuration/function-configuration-reference.md
 
 # Nuclio CLI
 curl -s https://api.github.com/repos/nuclio/nuclio/releases/latest \
@@ -109,10 +110,10 @@ sudo nuctl deploy users-single \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
 curl http://0.0.0.0:32779
-X hey -z 60s -c 10 http://0.0.0.0:32778
-X hey -z 300s -c 10 http://0.0.0.0:32770
-X hey -z 300s -c 50 http://0.0.0.0:32770
-X hey -z 300s -c 150 http://0.0.0.0:32770
+X hey -z 60s -c 10 http://0.0.0.0:32779
+X hey -z 300s -c 10 http://0.0.0.0:32779
+X hey -z 300s -c 50 http://0.0.0.0:32779
+X hey -z 300s -c 150 http://0.0.0.0:32779
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -123,9 +124,12 @@ sudo nuctl deploy users \
   --handler users:handler \
   --run-image users:v1 \
   --http-trigger-service-type NodePort \
-  --registry 0.0.0.0:5000 --run-registry localhost:5000
-curl  http://0.0.0.0:30534
-hey -z 300s -c 50 http://0.0.0.0:30534
+  --registry docker.io/wajrcs
+curl  http://0.0.0.0:32780
+hey -z 60s -c 10 http://0.0.0.0:32780
+hey -z 300s -c 10 http://0.0.0.0:32780
+hey -z 300s -c 50 http://0.0.0.0:32780
+hey -z 300s -c 150 http://0.0.0.0:32780
 
 # Thumbnail Generator
 cd thumbnail
