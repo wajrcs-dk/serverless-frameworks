@@ -130,6 +130,18 @@ hey -z 60s -c 10 http://0.0.0.0:32780
 hey -z 300s -c 10 http://0.0.0.0:32780
 hey -z 300s -c 50 http://0.0.0.0:32780
 hey -z 300s -c 150 http://0.0.0.0:32780
+# Fixed
+rm function.yaml
+cp function-fixed.yaml function.yaml
+sudo nuctl deploy users-fixed \
+  --verbose \
+  --namespace nuclio \
+  --runtime python \
+  --handler users:handler \
+  --run-image users:v1 \
+  --http-trigger-service-type NodePort \
+  --registry docker.io/wajrcs
+curl  http://0.0.0.0:32780
 
 # Thumbnail Generator
 cd thumbnail
