@@ -55,7 +55,7 @@ tar -xvf openwhisk_wskdeploy-1.2.0-linux-amd64.tgz
 sudo mv wskdeploy /usr/local/bin/wskdeploy
 
 helm install owdev ./helm/openwhisk -n openwhisk --create-namespace -f mycluster.yaml
-kubectl -n openwhisk get pods
+kubectl -n openwhisk get pods -w
 wsk property set --apihost 10.4.110.208:31001
 wsk property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
 wsk list -i
