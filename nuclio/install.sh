@@ -141,7 +141,7 @@ sudo nuctl deploy users-fixed \
   --run-image users:v1 \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
-curl  http://0.0.0.0:32780
+curl  http://0.0.0.0:32783
 
 # Thumbnail Generator
 cd thumbnail
