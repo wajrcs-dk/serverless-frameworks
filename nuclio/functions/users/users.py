@@ -3,7 +3,7 @@ import json
 
 def handler(context, event):
     mydb = mysql.connector.connect(
-        host="mysql-read",
+        host="mysql.default.svc.cluster.local",
         user="root",
         password="",
         database="dzhw",

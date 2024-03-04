@@ -102,13 +102,13 @@ sudo docker push users:v1
 cp function-single.yaml function.yaml
 sudo nuctl deploy users-single \
   --verbose \
-  --namespace nuclio \
+  --namespace default \
   --runtime python \
   --handler users:handler \
   --run-image users:v1 \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
-curl http://0.0.0.0:32778
+curl http://0.0.0.0:32779
 X hey -z 60s -c 10 http://0.0.0.0:32778
 X hey -z 300s -c 10 http://0.0.0.0:32770
 X hey -z 300s -c 50 http://0.0.0.0:32770
