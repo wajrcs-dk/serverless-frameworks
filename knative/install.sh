@@ -45,7 +45,7 @@ cd functions
 kubectl apply -f ./namespace/namespace.yaml
 
 # Check services
-kn service ls -n  knative-serverless
+kn service ls -n knative-serverless
 
 # Fibonacci
 cd fibonacci
