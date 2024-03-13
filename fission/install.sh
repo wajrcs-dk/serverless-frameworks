@@ -59,7 +59,10 @@ X hey -z 300s -c 50 http://10.4.110.208:31314/fibonacci?x=1000
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/fibonacci?x=1000
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-150.csv
-
+X hey -z 300s -c 250 http://10.4.110.208:31314/fibonacci?x=1000
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-250.csv
+X hey -z 300s -c 1000 http://10.4.110.208:31314/fibonacci?x=1000
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-1000.csv
 # Quicksort
 cd quicksort
 # Single
@@ -79,8 +82,15 @@ fission route create --method GET --url /quicksort --function quicksort
 curl http://10.4.110.208:31314/quicksort?x=1,7,4,1,10
 X hey -z 60s -c 10 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 X hey -z 300s -c 10 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-10.csv
 X hey -z 300s -c 50 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 50 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 150 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-150.csv
+hey -z 300s -c 250 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 250 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-150.csv
+hey -z 300s -c 1000 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-150.csv
 
 # Users
 cd users
@@ -95,16 +105,24 @@ fission route create --url /users-single --function users-single --createingress
 curl http://10.4.110.208:31314/users-single
 X hey -z 60s -c 10 http://10.4.110.208:31314/users-single
 X hey -z 300s -c 10 http://10.4.110.208:31314/users-single
+X hey -z 300s -c 10 -o csv http://10.4.110.208:31314/users-single > users-single-10.csv
 X hey -z 300s -c 50 http://10.4.110.208:31314/users-single
+X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/users-single > users-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/users-single
+X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/users-single > users-single-150.csv
 # Multiple
 fission function create --name users --env env-users --code users.py --executortype newdeploy --minscale 1 --maxscale 1000
 fission route create --method GET --url /users --function users
 curl http://10.4.110.208:31314/users
 X hey -z 60s -c 10 http://10.4.110.208:31314/users
 X hey -z 300s -c 10 http://10.4.110.208:31314/users
+X hey -z 300s -c 10 -o csv http://10.4.110.208:31314/users > users-multiple-10.csv
 X hey -z 300s -c 50 http://10.4.110.208:31314/users
+X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/users > users-multiple-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/users
+X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/users > users-multiple-150.csv
+X hey -z 300s -c 250 http://10.4.110.208:31314/users
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/users > users-multiple-150.csv
 
 # Thumbnail Generator
 cd thumbnail

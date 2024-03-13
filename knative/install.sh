@@ -26,6 +26,7 @@ kubectl patch configmap/config-network \
 # Verification
 kubectl --namespace kourier-system get service kourier
 kubectl get pods -n knative-serving
+kubectl get all -n knative-serving
 
 # Configure DNS
 kubectl patch configmap/config-domain \
@@ -54,6 +55,9 @@ docker push wajrcs/fibonacci-knative
 kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
 curl http://fibonacci.default.example.com?x=1000
+curl http://fibonacci-single.knative-serverless.svc.cluster.local?x=1000
+
+
 curl http://fibonacci-single.default.example.com?x=1000
 hey -z 300s -c 10 http://fibonacci.default.example.com?x=1000
 hey -z 300s -c 10 http://fibonacci-single.default.example.com?x=1000

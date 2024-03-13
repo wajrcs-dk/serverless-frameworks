@@ -375,3 +375,50 @@ Details (average, fastest, slowest):
 Status code distribution:
   [200] 506632 responses
 
+---------------------------------------------------------------
+
+hey -z 300s -c 250 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.9644 secs
+  Slowest:      17.6764 secs
+  Fastest:      0.0020 secs
+  Average:      0.3349 secs
+  Requests/sec: 746.2178
+
+  Total data:   31666485 bytes
+  Size/request: 141 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  1.769 [216497]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  3.537 [0]     |
+  5.304 [0]     |
+  7.072 [7675]  |■
+  8.839 [0]     |
+  10.607 [0]    |
+  12.374 [0]    |
+  14.142 [411]  |
+  15.909 [0]    |
+  17.676 [1]    |
+
+
+Latency distribution:
+  10% in 0.0869 secs
+  25% in 0.0908 secs
+  50% in 0.0960 secs
+  75% in 0.1043 secs
+  90% in 0.1208 secs
+  95% in 0.1405 secs
+  99% in 6.3881 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0020 secs, 17.6764 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0153 secs
+  resp wait:    0.3348 secs, 0.0019 secs, 17.6763 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0134 secs
+
+Status code distribution:
+  [200] 224585 responses
+
