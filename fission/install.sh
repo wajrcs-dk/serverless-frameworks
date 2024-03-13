@@ -122,7 +122,9 @@ X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/users > users-multiple-50.c
 X hey -z 300s -c 150 http://10.4.110.208:31314/users
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/users > users-multiple-150.csv
 X hey -z 300s -c 250 http://10.4.110.208:31314/users
-X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/users > users-multiple-150.csv
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/users > users-multiple-250.csv
+X hey -z 300s -c 1000 http://10.4.110.208:31314/users
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/users > users-multiple-1000.csv
 
 # Thumbnail Generator
 cd thumbnail
@@ -135,9 +137,12 @@ fission fn test --name thumbnail-single
 fission route create --method GET --url /thumbnail-single --function thumbnail-single
 curl http://10.4.110.208:31314/thumbnail-single
 X hey -z 60s -c 10 http://10.4.110.208:31314/thumbnail-single
-X hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail-single
+X hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail-single > thumbnail-single-10.csv
+X hey -z 300s -c 10 -o csv http://10.4.110.208:31314/thumbnail-single
 X hey -z 300s -c 50 http://10.4.110.208:31314/thumbnail-single
+X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/thumbnail-single
+X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-150.csv
 # Multiple
 fission function create --name thumbnail --env thumbnail --code thumbnail.py --executortype newdeploy --minscale 1 --maxscale 1000
 fission fn test --name thumbnail
@@ -145,5 +150,12 @@ fission route create --method GET --url /thumbnail --function thumbnail
 curl http://10.4.110.208:31314/thumbnail
 X hey -z 60s -c 10 http://10.4.110.208:31314/thumbnail
 X hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail
+X hey -z 300s -c 10 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-10.csv
 X hey -z 300s -c 50 http://10.4.110.208:31314/thumbnail
+X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/thumbnail
+X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-150.csv
+X hey -z 300s -c 250 http://10.4.110.208:31314/thumbnail
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-250.csv
+X hey -z 300s -c 1000 http://10.4.110.208:31314/thumbnail
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-1000.csv

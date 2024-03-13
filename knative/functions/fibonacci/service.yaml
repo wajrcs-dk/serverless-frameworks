@@ -1,13 +1,19 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: fibonacci
+  name: fibonacci-single
   namespace: knative-serverless
 spec:
   template:
+    metadata:
+      annotations:
+        # Knative concurrency-based autoscaling (default).
+        autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
+        autoscaling.knative.dev/metric: concurrency
+        autoscaling.knative.dev/min-scale: "1"
     spec:
       containers:
-      - image: docker.io/wajrcs/fibonacci-knative
-        env:
-        - name: TARGET
-          value: "Python Sample v1"
+        - image: docker.io/wajrcs/fibonacci-knative
+          env:
+            - name: TARGET
+              value: "Python Sample v1"

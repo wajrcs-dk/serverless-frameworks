@@ -45,8 +45,11 @@ sudo nuctl deploy fibonacci-single \
 curl http://0.0.0.0:32768
 X hey -z 60s -c 10 http://0.0.0.0:32768
 X hey -z 300s -c 10 http://0.0.0.0:32768
+X hey -z 300s -c 10 -o csv http://0.0.0.0:32768 > fibonacci-single-10.csv
 X hey -z 300s -c 50 http://0.0.0.0:32768
+X hey -z 300s -c 50 -o csv http://0.0.0.0:32768 > fibonacci-single-50.csv
 X hey -z 300s -c 150 http://0.0.0.0:32768
+X hey -z 300s -c 150 -o csv http://0.0.0.0:32768 > fibonacci-single-150.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -60,8 +63,15 @@ sudo nuctl deploy fibonacci \
 curl http://0.0.0.0:32769
 X hey -z 60s -c 10 http://0.0.0.0:32769
 X hey -z 300s -c 10 http://0.0.0.0:32769
+X hey -z 300s -c 10 -o csv http://0.0.0.0:32769 > fibonacci-multiple-10.csv
 X hey -z 300s -c 50 http://0.0.0.0:32769
+X hey -z 300s -c 50 -o csv http://0.0.0.0:32769 > fibonacci-multiple-50.csv
 X hey -z 300s -c 150 http://0.0.0.0:32769
+X hey -z 300s -c 150 -o csv http://0.0.0.0:32769 > fibonacci-multiple-150.csv
+X hey -z 300s -c 250 http://0.0.0.0:32769
+X hey -z 300s -c 250 -o csv http://0.0.0.0:32769 > fibonacci-multiple-250.csv
+X hey -z 300s -c 1000 http://0.0.0.0:32769
+X hey -z 300s -c 1000 -o csv http://0.0.0.0:32769 > fibonacci-multiple-1000.csv
 
 # Quicksort
 cd quicksort
@@ -77,8 +87,11 @@ sudo nuctl deploy quicksort-single \
 curl http://0.0.0.0:32770
 X hey -z 60s -c 10 http://0.0.0.0:32770
 X hey -z 300s -c 10 http://0.0.0.0:32770
+X hey -z 300s -c 10 -o csv http://0.0.0.0:32770 > quicksort-single-10.csv
 X hey -z 300s -c 50 http://0.0.0.0:32770
+X hey -z 300s -c 50 -o csv http://0.0.0.0:32770 > quicksort-single-50.csv
 X hey -z 300s -c 150 http://0.0.0.0:32770
+X hey -z 300s -c 150 -o csv http://0.0.0.0:32770 > quicksort-single-150.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -92,8 +105,15 @@ sudo nuctl deploy quicksort \
 curl http://0.0.0.0:32771
 X hey -z 60s -c 10 http://0.0.0.0:32771
 X hey -z 300s -c 10 http://0.0.0.0:32770
+X hey -z 300s -c 10 -o csv http://0.0.0.0:32770 > quicksort-multiple-10.csv
 X hey -z 300s -c 50 http://0.0.0.0:32770
+X hey -z 300s -c 50 -o csv http://0.0.0.0:32770 > quicksort-multiple-50.csv
 X hey -z 300s -c 150 http://0.0.0.0:32770
+X hey -z 300s -c 150 -o csv http://0.0.0.0:32770 > quicksort-multiple-150.csv
+X hey -z 300s -c 250 http://0.0.0.0:32770
+X hey -z 300s -c 250 -o csv http://0.0.0.0:32770 > quicksort-multiple-250.csv
+X hey -z 300s -c 1000 http://0.0.0.0:32770
+X hey -z 300s -c 1000 -o csv http://0.0.0.0:32770 > quicksort-multiple-1000.csv
 
 # Users
 cd users

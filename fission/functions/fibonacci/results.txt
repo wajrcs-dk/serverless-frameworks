@@ -471,3 +471,50 @@ Status code distribution:
 
 ---------------------------------------------------------------
 
+hey -z 300s -c 250 http://0.0.0.0:32769
+
+Summary:
+  Total:        300.9927 secs
+  Slowest:      1.1602 secs
+  Fastest:      0.0106 secs
+  Average:      1.0212 secs
+  Requests/sec: 244.4046
+
+  Total data:   7838538456 bytes
+  Size/request: 106554 bytes
+
+Response time histogram:
+  0.011 [1]     |
+  0.126 [29]    |
+  0.241 [24]    |
+  0.355 [31]    |
+  0.470 [28]    |
+  0.585 [28]    |
+  0.700 [31]    |
+  0.815 [22]    |
+  0.930 [26]    |
+  1.045 [59073] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.160 [14271] |■■■■■■■■■■
+
+
+Latency distribution:
+  10% in 0.9871 secs
+  25% in 1.0026 secs
+  50% in 1.0197 secs
+  75% in 1.0387 secs
+  90% in 1.0612 secs
+  95% in 1.0766 secs
+  99% in 1.1163 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0106 secs, 1.1602 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0191 secs
+  resp wait:    1.0209 secs, 0.0059 secs, 1.1600 secs
+  resp read:    0.0002 secs, 0.0000 secs, 0.0119 secs
+
+Status code distribution:
+  [200] 73564 responses
+
+---------------------------------------------------------------
+
