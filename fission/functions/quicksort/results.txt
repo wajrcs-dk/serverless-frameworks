@@ -424,6 +424,94 @@ Status code distribution:
 
 ---------------------------------------------------------------
 
+hey -z 300s -c 250 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.1545 secs
+  Slowest:      0.2239 secs
+  Fastest:      0.0040 secs
+  Average:      0.1364 secs
+  Requests/sec: 1832.6898
+
+  Total data:   107817640 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.004 [1]     |
+  0.026 [12]    |
+  0.048 [72]    |
+  0.070 [95]    |
+  0.092 [5495]  |■
+  0.114 [55852] |■■■■■■■■■■
+  0.136 [210122]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.158 [213042]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.180 [55487] |■■■■■■■■■■
+  0.202 [8832]  |■■
+  0.224 [1080]  |
+
+
+Latency distribution:
+  10% in 0.1126 secs
+  25% in 0.1241 secs
+  50% in 0.1362 secs
+  75% in 0.1480 secs
+  90% in 0.1602 secs
+  95% in 0.1681 secs
+  99% in 0.1867 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0040 secs, 0.2239 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0155 secs
+  resp wait:    0.1363 secs, 0.0034 secs, 0.2238 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0095 secs
+
+Status code distribution:
+  [200] 550090 responses
 
 ---------------------------------------------------------------
 
+hey -z 300s -c 1000 http://0.0.0.0:32770
+
+Summary:
+  Total:        300.5502 secs
+  Slowest:      0.8353 secs
+  Fastest:      0.0761 secs
+  Average:      0.5478 secs
+  Requests/sec: 1823.4490
+
+  Total data:   107415448 bytes
+  Size/request: 196 bytes
+
+Response time histogram:
+  0.076 [1]     |
+  0.152 [62]    |
+  0.228 [153]   |
+  0.304 [139]   |
+  0.380 [180]   |
+  0.456 [6732]  |■
+  0.532 [175649]        |■■■■■■■■■■■■■■■■■■■■■
+  0.608 [330554]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.683 [32947] |■■■■
+  0.759 [1067]  |
+  0.835 [554]   |
+
+
+Latency distribution:
+  10% in 0.4964 secs
+  25% in 0.5213 secs
+  50% in 0.5484 secs
+  75% in 0.5742 secs
+  90% in 0.5971 secs
+  95% in 0.6124 secs
+  99% in 0.6442 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0001 secs, 0.0761 secs, 0.8353 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0385 secs
+  resp wait:    0.5476 secs, 0.0314 secs, 0.8353 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0186 secs
+
+Status code distribution:
+  [200] 548038 responses

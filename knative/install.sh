@@ -24,15 +24,13 @@ kubectl patch configmap/config-network \
   --patch '{"data":{"ingress-class":"kourier.ingress.networking.knative.dev"}}'
 
 # Verification
-kubectl --namespace kourier-system get service kourier
 kubectl get pods -n knative-serving
 kubectl get all -n knative-serving
+kubectl --namespace kourier-system get service kourier
 
 # Configure DNS
-kubectl patch configmap/config-domain \
-      --namespace knative-serving \
-      --type merge \
-      --patch '{"data":{"vmserverless0.dzhw.local":""}}'
+# here 10.103.12.15 is CLUSTER-IP
+kubectl patch configmap -n knative-serving config-domain -p "{\"data\": {\"10.96.30.55.nip.io\": \"\"}}"
 kubectl get ksvc
 
 # HPA autoscaling
@@ -54,13 +52,28 @@ docker build -t "wajrcs/fibonacci-knative" .
 docker push wajrcs/fibonacci-knative
 kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
-curl http://fibonacci.default.example.com?x=1000
-curl http://fibonacci-single.knative-serverless.svc.cluster.local?x=1000
-
-
-curl http://fibonacci-single.default.example.com?x=1000
-hey -z 300s -c 10 http://fibonacci.default.example.com?x=1000
-hey -z 300s -c 10 http://fibonacci-single.default.example.com?x=1000
+# Single
+curl http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 10s -c 10 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 10 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 10 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-single-10.csv
+hey -z 300s -c 50 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 50 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-single-50.csv
+hey -z 300s -c 150 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 150 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-single-150.csv
+# Multiple
+curl http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 10s -c 10 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 10 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 10 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-10.csv
+hey -z 300s -c 50 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 50 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-50.csv
+hey -z 300s -c 150 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 150 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-150.csv
+hey -z 300s -c 250 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 250 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-250.csv
+hey -z 300s -c 1000 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 300s -c 1000 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-1000.csv
 
 # Quicksort
 cd quicksort
@@ -68,10 +81,28 @@ docker build -t "wajrcs/quicksort-knative" .
 docker push wajrcs/quicksort-knative
 kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
-curl http://quicksort.default.example.com?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
-curl http://quicksort-single.default.example.com?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
-hey -z 300s -c 10 http://quicksort.default.example.com?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
-hey -z 300s -c 10 http://quicksort-single.default.example.com?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+# Single
+curl http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 10s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 -o csv http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-10.csv
+hey -z 300s -c 50 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 50 -o csv http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-50.csv
+hey -z 300s -c 150 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 150 -o csv http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-150.csv
+# Multiple
+curl http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 10s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-10.csv
+hey -z 300s -c 50 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 50 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-50.csv
+hey -z 300s -c 150 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 150 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-150.csv
+hey -z 300s -c 250 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 250 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-250.csv
+hey -z 300s -c 1000 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 1000 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-1000.csv
 
 # Users
 cd users
@@ -79,10 +110,28 @@ docker build -t "wajrcs/users-knative" .
 docker push wajrcs/users-knative
 kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
-curl http://users.default.example.com
-curl http://users-single.default.example.com
-hey -z 10s -c 50 http://users.default.example.com
-hey -z 10s -c 50 http://users-single.default.example.com
+# Single
+curl http://users-single.knative-serverless.10.96.30.55.nip.io
+hey -z 10s -c 10 http://users-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 http://users-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 -o csv http://users-single.knative-serverless.10.96.30.55.nip.io > users-single-10.csv
+hey -z 300s -c 50 http://users-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 50 -o csv http://users-single.knative-serverless.10.96.30.55.nip.io > users-single-50.csv
+hey -z 300s -c 150 http://users-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 150 -o csv http://users-single.knative-serverless.10.96.30.55.nip.io > users-single-150.csv
+# Multiple
+curl http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 10s -c 10 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 -o csv http://users.knative-serverless.10.96.30.55.nip.io > users-multiple-10.csv
+hey -z 300s -c 50 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 50 -o csv http://users.knative-serverless.10.96.30.55.nip.io > users-multiple-50.csv
+hey -z 300s -c 150 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 150 -o csv http://users.knative-serverless.10.96.30.55.nip.io > users-multiple-150.csv
+hey -z 300s -c 250 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 250 -o csv http://users.knative-serverless.10.96.30.55.nip.io > users-multiple-250.csv
+hey -z 300s -c 1000 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 1000 -o csv http://users.knative-serverless.10.96.30.55.nip.io > users-multiple-1000.csv
 
 # Thumbnail Generator
 cd thumbnail
@@ -90,7 +139,25 @@ docker build -t "wajrcs/thumbnail-knative" .
 docker push wajrcs/thumbnail-knative
 kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
-curl http://thumbnail.default.example.com
-curl http://thumbnail-sample.default.example.com
-hey -z  10s -c 50 http://thumbnail.default.example.com
-hey -z  10s -c 50 http://thumbnail-sample.default.example.com
+# Single
+curl http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+hey -z 10s -c 10 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 -o csv http://thumbnail-single.knative-serverless.10.96.30.55.nip.io > thumbnail-single-10.csv
+hey -z 300s -c 50 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 50 -o csv http://thumbnail-single.knative-serverless.10.96.30.55.nip.io > thumbnail-single-50.csv
+hey -z 300s -c 150 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 150 -o csv http://thumbnail-single.knative-serverless.10.96.30.55.nip.io > thumbnail-single-150.csv
+# Multiple
+curl http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 10s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 10 -o csv http://thumbnail.knative-serverless.10.96.30.55.nip.io > thumbnail-multiple-10.csv
+hey -z 300s -c 50 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 50 -o csv http://thumbnail.knative-serverless.10.96.30.55.nip.io > thumbnail-multiple-50.csv
+hey -z 300s -c 150 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 150 -o csv http://thumbnail.knative-serverless.10.96.30.55.nip.io > thumbnail-multiple-150.csv
+hey -z 300s -c 250 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 250 -o csv http://thumbnail.knative-serverless.10.96.30.55.nip.io > thumbnail-multiple-250.csv
+hey -z 300s -c 1000 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 300s -c 1000 -o csv http://thumbnail.knative-serverless.10.96.30.55.nip.io > thumbnail-multiple-1000.csv
