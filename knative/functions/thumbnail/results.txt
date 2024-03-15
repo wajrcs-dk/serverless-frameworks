@@ -1,0 +1,469 @@
+hey -z 60s -c 10 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        60.0181 secs
+  Slowest:      0.2555 secs
+  Fastest:      0.0081 secs
+  Average:      0.0345 secs
+  Requests/sec: 289.8459
+
+  Total data:   608860 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.008 [1]     |
+  0.033 [8520]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.058 [8173]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.082 [634]   |■■■
+  0.107 [59]    |
+  0.132 [5]     |
+  0.157 [0]     |
+  0.181 [0]     |
+  0.206 [0]     |
+  0.231 [0]     |
+  0.256 [4]     |
+
+
+Latency distribution:
+  10% in 0.0205 secs
+  25% in 0.0258 secs
+  50% in 0.0331 secs
+  75% in 0.0411 secs
+  90% in 0.0496 secs
+  95% in 0.0558 secs
+  99% in 0.0718 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0081 secs, 0.2555 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0015 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0011 secs
+  resp wait:    0.0344 secs, 0.0080 secs, 0.2555 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0020 secs
+
+Status code distribution:
+  [200] 17396 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 -o csv http://thumbnail-single.knative-serverless.10.96.30.55.nip.io > thumbnail-single-10.csv
+
+Summary:
+  Total:        300.0283 secs
+  Slowest:      0.2741 secs
+  Fastest:      0.0082 secs
+  Average:      0.0357 secs
+  Requests/sec: 280.1935
+
+  Total data:   2942310 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.008 [1]     |
+  0.035 [44601] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.061 [36180] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.088 [2986]  |■■■
+  0.115 [265]   |
+  0.141 [27]    |
+  0.168 [4]     |
+  0.194 [0]     |
+  0.221 [0]     |
+  0.248 [1]     |
+  0.274 [1]     |
+
+
+Latency distribution:
+  10% in 0.0212 secs
+  25% in 0.0266 secs
+  50% in 0.0339 secs
+  75% in 0.0424 secs
+  90% in 0.0519 secs
+  95% in 0.0590 secs
+  99% in 0.0764 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0082 secs, 0.2741 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0034 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0033 secs
+  resp wait:    0.0356 secs, 0.0082 secs, 0.2740 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0054 secs
+
+Status code distribution:
+  [200] 84066 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        300.1161 secs
+  Slowest:      0.3515 secs
+  Fastest:      0.0344 secs
+  Average:      0.1330 secs
+  Requests/sec: 375.9512
+
+  Total data:   3949015 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.034 [1]     |
+  0.066 [15]    |
+  0.098 [56]    |
+  0.130 [49395] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.161 [59475] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.193 [3645]  |■■
+  0.225 [226]   |
+  0.256 [10]    |
+  0.288 [0]     |
+  0.320 [0]     |
+  0.352 [6]     |
+
+
+Latency distribution:
+  10% in 0.1168 secs
+  25% in 0.1234 secs
+  50% in 0.1315 secs
+  75% in 0.1408 secs
+  90% in 0.1505 secs
+  95% in 0.1575 secs
+  99% in 0.1754 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0344 secs, 0.3515 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0049 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0051 secs
+  resp wait:    0.1329 secs, 0.0301 secs, 0.3515 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0033 secs
+
+Status code distribution:
+  [200] 112829 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        300.3525 secs
+  Slowest:      0.7603 secs
+  Fastest:      0.0330 secs
+  Average:      0.4201 secs
+  Requests/sec: 356.8207
+
+  Total data:   3751020 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.033 [1]     |
+  0.106 [23]    |
+  0.178 [20]    |
+  0.251 [26]    |
+  0.324 [34]    |
+  0.397 [24292] |■■■■■■■■■■■■■
+  0.469 [74338] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.542 [7581]  |■■■■
+  0.615 [824]   |
+  0.688 [20]    |
+  0.760 [13]    |
+
+
+Latency distribution:
+  10% in 0.3855 secs
+  25% in 0.3982 secs
+  50% in 0.4142 secs
+  75% in 0.4351 secs
+  90% in 0.4620 secs
+  95% in 0.4831 secs
+  99% in 0.5362 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0330 secs, 0.7603 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0070 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0047 secs
+  resp wait:    0.4200 secs, 0.0287 secs, 0.7521 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0051 secs
+
+Status code distribution:
+  [200] 107172 responses
+
+---------------------------------------------------------------
+Multiple
+---------------------------------------------------------------
+
+hey -z 60s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        60.0185 secs
+  Slowest:      0.2608 secs
+  Fastest:      0.0085 secs
+  Average:      0.0353 secs
+  Requests/sec: 283.2795
+
+  Total data:   595070 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.009 [1]     |
+  0.034 [8628]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.059 [7544]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.084 [738]   |■■■
+  0.109 [84]    |
+  0.135 [5]     |
+  0.160 [0]     |
+  0.185 [1]     |
+  0.210 [0]     |
+  0.236 [0]     |
+  0.261 [1]     |
+
+
+Latency distribution:
+  10% in 0.0209 secs
+  25% in 0.0263 secs
+  50% in 0.0336 secs
+  75% in 0.0418 secs
+  90% in 0.0513 secs
+  95% in 0.0587 secs
+  99% in 0.0774 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0085 secs, 0.2608 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0013 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0008 secs
+  resp wait:    0.0352 secs, 0.0084 secs, 0.2608 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0007 secs
+
+Status code distribution:
+  [200] 17002 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        300.0120 secs
+  Slowest:      0.2773 secs
+  Fastest:      0.0084 secs
+  Average:      0.0352 secs
+  Requests/sec: 283.7253
+
+  Total data:   2979235 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.008 [1]     |
+  0.035 [47330] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.062 [35087] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.089 [2505]  |■■
+  0.116 [180]   |
+  0.143 [11]    |
+  0.170 [0]     |
+  0.197 [0]     |
+  0.224 [0]     |
+  0.250 [0]     |
+  0.277 [7]     |
+
+
+Latency distribution:
+  10% in 0.0210 secs
+  25% in 0.0264 secs
+  50% in 0.0336 secs
+  75% in 0.0420 secs
+  90% in 0.0511 secs
+  95% in 0.0577 secs
+  99% in 0.0739 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0084 secs, 0.2773 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0012 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0022 secs
+  resp wait:    0.0352 secs, 0.0083 secs, 0.2772 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0014 secs
+
+Status code distribution:
+  [200] 85121 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        300.0997 secs
+  Slowest:      0.3437 secs
+  Fastest:      0.0325 secs
+  Average:      0.1331 secs
+  Requests/sec: 375.6685
+
+  Total data:   3945830 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.032 [1]     |
+  0.064 [11]    |
+  0.095 [34]    |
+  0.126 [36622] |■■■■■■■■■■■■■■■■■■■■■
+  0.157 [69649] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.188 [5949]  |■■■
+  0.219 [452]   |
+  0.250 [11]    |
+  0.281 [0]     |
+  0.313 [0]     |
+  0.344 [9]     |
+
+
+Latency distribution:
+  10% in 0.1168 secs
+  25% in 0.1233 secs
+  50% in 0.1314 secs
+  75% in 0.1409 secs
+  90% in 0.1510 secs
+  95% in 0.1584 secs
+  99% in 0.1775 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0325 secs, 0.3437 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0016 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0042 secs
+  resp wait:    0.1330 secs, 0.0312 secs, 0.3436 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0051 secs
+
+Status code distribution:
+  [200] 112738 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        300.1589 secs
+  Slowest:      0.6099 secs
+  Fastest:      0.0186 secs
+  Average:      0.1931 secs
+  Requests/sec: 776.4355
+
+  Total data:   8156890 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.019 [1]     |
+  0.078 [33]    |
+  0.137 [587]   |
+  0.196 [144382]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.255 [80576] |■■■■■■■■■■■■■■■■■■■■■■
+  0.314 [4978]  |■
+  0.373 [379]   |
+  0.433 [1421]  |
+  0.492 [660]   |
+  0.551 [25]    |
+  0.610 [12]    |
+
+
+Latency distribution:
+  10% in 0.1606 secs
+  25% in 0.1725 secs
+  50% in 0.1880 secs
+  75% in 0.2063 secs
+  90% in 0.2267 secs
+  95% in 0.2430 secs
+  99% in 0.3289 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0186 secs, 0.6099 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0059 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0055 secs
+  resp wait:    0.1931 secs, 0.0185 secs, 0.6099 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0071 secs
+
+Status code distribution:
+  [200] 233054 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 250 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        300.3560 secs
+  Slowest:      1.3265 secs
+  Fastest:      0.0078 secs
+  Average:      0.4020 secs
+  Requests/sec: 621.5392
+
+  Total data:   6533905 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.008 [1]     |
+  0.140 [148]   |
+  0.272 [930]   |
+  0.403 [104593]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.535 [75193] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.667 [4365]  |■■
+  0.799 [895]   |
+  0.931 [460]   |
+  1.063 [52]    |
+  1.195 [26]    |
+  1.326 [20]    |
+
+
+Latency distribution:
+  10% in 0.3315 secs
+  25% in 0.3601 secs
+  50% in 0.3943 secs
+  75% in 0.4327 secs
+  90% in 0.4749 secs
+  95% in 0.5089 secs
+  99% in 0.6332 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0001 secs, 0.0078 secs, 1.3265 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0406 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0058 secs
+  resp wait:    0.4019 secs, 0.0077 secs, 1.2801 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0058 secs
+
+Status code distribution:
+  [200] 186683 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 1000 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+
+Summary:
+  Total:        301.0806 secs
+  Slowest:      17.6416 secs
+  Fastest:      0.0056 secs
+  Average:      0.9862 secs
+  Requests/sec: 1011.9648
+
+  Total data:   10663905 bytes
+  Size/request: 35 bytes
+
+Response time histogram:
+  0.006 [1]     |
+  1.769 [244702]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  3.533 [48496] |■■■■■■■■
+  5.296 [8771]  |■
+  7.060 [1819]  |
+  8.824 [366]   |
+  10.587 [160]  |
+  12.351 [50]   |
+  14.114 [65]   |
+  15.878 [101]  |
+  17.642 [152]  |
+
+
+Latency distribution:
+  10% in 0.0153 secs
+  25% in 0.0524 secs
+  50% in 0.6023 secs
+  75% in 1.4446 secs
+  90% in 2.5239 secs
+  95% in 3.2452 secs
+  99% in 5.1982 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0003 secs, 0.0056 secs, 17.6416 secs
+  DNS-lookup:   0.0001 secs, 0.0000 secs, 0.0697 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0195 secs
+  resp wait:    0.9858 secs, 0.0056 secs, 17.5571 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0115 secs
+
+Status code distribution:
+  [200] 304683 responses

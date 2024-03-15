@@ -1,0 +1,469 @@
+hey -z 60s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        60.0080 secs
+  Slowest:      0.2356 secs
+  Fastest:      0.0019 secs
+  Average:      0.0089 secs
+  Requests/sec: 1119.0845
+
+  Total data:   8730020 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  0.025 [66788] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.049 [359]   |
+  0.072 [4]     |
+  0.095 [0]     |
+  0.119 [0]     |
+  0.142 [0]     |
+  0.166 [0]     |
+  0.189 [0]     |
+  0.212 [0]     |
+  0.236 [2]     |
+
+
+Latency distribution:
+  10% in 0.0055 secs
+  25% in 0.0067 secs
+  50% in 0.0082 secs
+  75% in 0.0102 secs
+  90% in 0.0131 secs
+  95% in 0.0154 secs
+  99% in 0.0224 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0019 secs, 0.2356 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0011 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0020 secs
+  resp wait:    0.0089 secs, 0.0018 secs, 0.2341 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0026 secs
+
+Status code distribution:
+  [200] 67154 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.0082 secs
+  Slowest:      0.2340 secs
+  Fastest:      0.0018 secs
+  Average:      0.0089 secs
+  Requests/sec: 1123.2994
+
+  Total data:   43809870 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  0.025 [334736]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.048 [2199]  |
+  0.071 [38]    |
+  0.095 [0]     |
+  0.118 [0]     |
+  0.141 [0]     |
+  0.164 [0]     |
+  0.188 [0]     |
+  0.211 [0]     |
+  0.234 [25]    |
+
+
+Latency distribution:
+  10% in 0.0055 secs
+  25% in 0.0066 secs
+  50% in 0.0081 secs
+  75% in 0.0102 secs
+  90% in 0.0131 secs
+  95% in 0.0156 secs
+  99% in 0.0229 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0018 secs, 0.2340 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0015 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0047 secs
+  resp wait:    0.0088 secs, 0.0017 secs, 0.2339 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0064 secs
+
+Status code distribution:
+  [200] 336999 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.0502 secs
+  Slowest:      0.2961 secs
+  Fastest:      0.0098 secs
+  Average:      0.0468 secs
+  Requests/sec: 1068.8846
+
+  Total data:   41693470 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.010 [1]     |
+  0.038 [46765] |■■■■■■■
+  0.067 [260112]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.096 [13416] |■■
+  0.124 [387]   |
+  0.153 [9]     |
+  0.182 [7]     |
+  0.210 [4]     |
+  0.239 [0]     |
+  0.267 [9]     |
+  0.296 [9]     |
+
+
+Latency distribution:
+  10% in 0.0374 secs
+  25% in 0.0403 secs
+  50% in 0.0446 secs
+  75% in 0.0506 secs
+  90% in 0.0590 secs
+  95% in 0.0656 secs
+  99% in 0.0802 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0098 secs, 0.2961 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0032 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0064 secs
+  resp wait:    0.0467 secs, 0.0073 secs, 0.2960 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0077 secs
+
+Status code distribution:
+  [200] 320719 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.1329 secs
+  Slowest:      2.5184 secs
+  Fastest:      0.0125 secs
+  Average:      0.1366 secs
+  Requests/sec: 1098.0103
+
+  Total data:   42841370 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.013 [1]     |
+  0.263 [329378]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.514 [78]    |
+  0.764 [12]    |
+  1.015 [13]    |
+  1.265 [24]    |
+  1.516 [6]     |
+  1.767 [5]     |
+  2.017 [9]     |
+  2.268 [11]    |
+  2.518 [12]    |
+
+
+Latency distribution:
+  10% in 0.1173 secs
+  25% in 0.1228 secs
+  50% in 0.1314 secs
+  75% in 0.1447 secs
+  90% in 0.1621 secs
+  95% in 0.1754 secs
+  99% in 0.2092 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0125 secs, 2.5184 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0045 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0070 secs
+  resp wait:    0.1365 secs, 0.0088 secs, 2.5183 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0107 secs
+
+Status code distribution:
+  [200] 329549 responses
+
+---------------------------------------------------------------
+Multiple
+---------------------------------------------------------------
+
+hey -z 60s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        60.0093 secs
+  Slowest:      0.2253 secs
+  Fastest:      0.0020 secs
+  Average:      0.0086 secs
+  Requests/sec: 1156.3375
+
+  Total data:   9020830 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  0.024 [68978] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.047 [394]   |
+  0.069 [11]    |
+  0.091 [0]     |
+  0.114 [0]     |
+  0.136 [0]     |
+  0.158 [0]     |
+  0.181 [0]     |
+  0.203 [0]     |
+  0.225 [7]     |
+
+
+Latency distribution:
+  10% in 0.0054 secs
+  25% in 0.0064 secs
+  50% in 0.0079 secs
+  75% in 0.0098 secs
+  90% in 0.0126 secs
+  95% in 0.0150 secs
+  99% in 0.0219 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0020 secs, 0.2253 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0358 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0047 secs
+  resp wait:    0.0086 secs, 0.0019 secs, 0.2252 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0069 secs
+
+Status code distribution:
+  [200] 69391 responses
+
+---------------------------------------------------------------
+
+ hey -z 300s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.0061 secs
+  Slowest:      0.2297 secs
+  Fastest:      0.0018 secs
+  Average:      0.0086 secs
+  Requests/sec: 1163.8531
+
+  Total data:   45391190 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  0.025 [347181]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.047 [1927]  |
+  0.070 [34]    |
+  0.093 [4]     |
+  0.116 [0]     |
+  0.139 [0]     |
+  0.161 [0]     |
+  0.184 [0]     |
+  0.207 [0]     |
+  0.230 [16]    |
+
+
+Latency distribution:
+  10% in 0.0054 secs
+  25% in 0.0064 secs
+  50% in 0.0078 secs
+  75% in 0.0098 secs
+  90% in 0.0126 secs
+  95% in 0.0149 secs
+  99% in 0.0216 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0018 secs, 0.2297 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0016 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0034 secs
+  resp wait:    0.0085 secs, 0.0018 secs, 0.2297 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0080 secs
+
+Status code distribution:
+  [200] 349163 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.0381 secs
+  Slowest:      0.3029 secs
+  Fastest:      0.0130 secs
+  Average:      0.0432 secs
+  Requests/sec: 1157.7696
+
+  Total data:   45158750 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.013 [1]     |
+  0.042 [193337]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.071 [149528]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.100 [4401]  |■
+  0.129 [91]    |
+  0.158 [4]     |
+  0.187 [1]     |
+  0.216 [0]     |
+  0.245 [0]     |
+  0.274 [6]     |
+  0.303 [6]     |
+
+
+Latency distribution:
+  10% in 0.0354 secs
+  25% in 0.0378 secs
+  50% in 0.0412 secs
+  75% in 0.0462 secs
+  90% in 0.0535 secs
+  95% in 0.0594 secs
+  99% in 0.0731 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0130 secs, 0.3029 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0020 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0083 secs
+  resp wait:    0.0431 secs, 0.0100 secs, 0.3029 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0084 secs
+
+Status code distribution:
+  [200] 347375 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.0530 secs
+  Slowest:      2.2934 secs
+  Fastest:      0.0018 secs
+  Average:      0.0532 secs
+  Requests/sec: 2821.2581
+
+  Total data:   110048510 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.002 [1]     |
+  0.231 [846117]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.460 [313]   |
+  0.689 [17]    |
+  0.918 [7]     |
+  1.148 [23]    |
+  1.377 [11]    |
+  1.606 [3]     |
+  1.835 [6]     |
+  2.064 [17]    |
+  2.293 [12]    |
+
+
+Latency distribution:
+  10% in 0.0393 secs
+  25% in 0.0441 secs
+  50% in 0.0504 secs
+  75% in 0.0583 secs
+  90% in 0.0684 secs
+  95% in 0.0768 secs
+  99% in 0.1053 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0018 secs, 2.2934 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0327 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0135 secs
+  resp wait:    0.0531 secs, 0.0017 secs, 2.2934 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0141 secs
+
+Status code distribution:
+  [200] 846527 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 250 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.1005 secs
+  Slowest:      6.0130 secs
+  Fastest:      0.0050 secs
+  Average:      0.1007 secs
+  Requests/sec: 2481.3790
+
+  Total data:   96806190 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.005 [1]     |
+  0.606 [744446]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.207 [85]    |
+  1.807 [36]    |
+  2.408 [11]    |
+  3.009 [7]     |
+  3.610 [9]     |
+  4.211 [6]     |
+  4.811 [14]    |
+  5.412 [9]     |
+  6.013 [39]    |
+
+
+Latency distribution:
+  10% in 0.0732 secs
+  25% in 0.0829 secs
+  50% in 0.0958 secs
+  75% in 0.1120 secs
+  90% in 0.1310 secs
+  95% in 0.1456 secs
+  99% in 0.1869 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0050 secs, 6.0130 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0172 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0135 secs
+  resp wait:    0.1007 secs, 0.0050 secs, 6.0130 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0148 secs
+
+Status code distribution:
+  [200] 744663 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 1000 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+
+Summary:
+  Total:        300.3668 secs
+  Slowest:      13.4133 secs
+  Fastest:      0.0011 secs
+  Average:      0.3204 secs
+  Requests/sec: 3118.3838
+
+  Total data:   121765670 bytes
+  Size/request: 130 bytes
+
+Response time histogram:
+  0.001 [1]     |
+  1.342 [924684]        |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.684 [10134] |
+  4.025 [503]   |
+  5.366 [212]   |
+  6.707 [236]   |
+  8.048 [243]   |
+  9.390 [321]   |
+  10.731 [172]  |
+  12.072 [130]  |
+  13.413 [23]   |
+
+
+Latency distribution:
+  10% in 0.0036 secs
+  25% in 0.0870 secs
+  50% in 0.2559 secs
+  75% in 0.4277 secs
+  90% in 0.6723 secs
+  95% in 0.9028 secs
+  99% in 1.4380 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0001 secs, 0.0011 secs, 13.4133 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0663 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0231 secs
+  resp wait:    0.3203 secs, 0.0011 secs, 13.4133 secs
+  resp read:    0.0000 secs, 0.0000 secs, 0.0429 secs
+
+Status code distribution:
+  [200] 936659 responses

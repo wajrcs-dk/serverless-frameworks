@@ -54,26 +54,26 @@ kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
 # Single
 curl http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 10s -c 10 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 60s -c 10 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
 hey -z 300s -c 10 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 10 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-single-10.csv
+hey -z 300s -c 10 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-single-10.csv
 hey -z 300s -c 50 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 50 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-single-50.csv
+hey -z 300s -c 50 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-single-50.csv
 hey -z 300s -c 150 http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 150 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-single-150.csv
+hey -z 300s -c 150 -o csv http://fibonacci-single.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-single-150.csv
 # Multiple
 curl http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 10s -c 10 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
+hey -z 60s -c 10 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
 hey -z 300s -c 10 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 10 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-10.csv
+hey -z 300s -c 10 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-multiple-10.csv
 hey -z 300s -c 50 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 50 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-50.csv
+hey -z 300s -c 50 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-multiple-50.csv
 hey -z 300s -c 150 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 150 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-150.csv
+hey -z 300s -c 150 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-multiple-150.csv
 hey -z 300s -c 250 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 250 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-250.csv
+hey -z 300s -c 250 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-multiple-250.csv
 hey -z 300s -c 1000 http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000
-hey -z 300s -c 1000 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > quicksort-multiple-1000.csv
+hey -z 300s -c 1000 -o csv http://fibonacci.knative-serverless.10.96.30.55.nip.io?x=1000 > fibonacci-multiple-1000.csv
 
 # Quicksort
 cd quicksort
@@ -83,7 +83,7 @@ kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
 # Single
 curl http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
-hey -z 10s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 60s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 hey -z 300s -c 10 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 hey -z 300s -c 10 -o csv http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-10.csv
 hey -z 300s -c 50 http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
@@ -92,7 +92,7 @@ hey -z 300s -c 150 http://quicksort-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 150 -o csv http://quicksort-single.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-150.csv
 # Multiple
 curl http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
-hey -z 10s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 60s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 hey -z 300s -c 10 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 hey -z 300s -c 10 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-10.csv
 hey -z 300s -c 50 http://quicksort.knative-serverless.10.96.30.55.nip.io?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
@@ -112,7 +112,7 @@ kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
 # Single
 curl http://users-single.knative-serverless.10.96.30.55.nip.io
-hey -z 10s -c 10 http://users-single.knative-serverless.10.96.30.55.nip.io
+hey -z 60s -c 10 http://users-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 http://users-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 -o csv http://users-single.knative-serverless.10.96.30.55.nip.io > users-single-10.csv
 hey -z 300s -c 50 http://users-single.knative-serverless.10.96.30.55.nip.io
@@ -121,7 +121,7 @@ hey -z 300s -c 150 http://users-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 150 -o csv http://users-single.knative-serverless.10.96.30.55.nip.io > users-single-150.csv
 # Multiple
 curl http://users.knative-serverless.10.96.30.55.nip.io
-hey -z 10s -c 10 http://users.knative-serverless.10.96.30.55.nip.io
+hey -z 60s -c 10 http://users.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 http://users.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 -o csv http://users.knative-serverless.10.96.30.55.nip.io > users-multiple-10.csv
 hey -z 300s -c 50 http://users.knative-serverless.10.96.30.55.nip.io
@@ -141,7 +141,7 @@ kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
 # Single
 curl http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
-hey -z 10s -c 10 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
+hey -z 60s -c 10 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 -o csv http://thumbnail-single.knative-serverless.10.96.30.55.nip.io > thumbnail-single-10.csv
 hey -z 300s -c 50 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
@@ -150,7 +150,7 @@ hey -z 300s -c 150 http://thumbnail-single.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 150 -o csv http://thumbnail-single.knative-serverless.10.96.30.55.nip.io > thumbnail-single-150.csv
 # Multiple
 curl http://thumbnail.knative-serverless.10.96.30.55.nip.io
-hey -z 10s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
+hey -z 60s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 http://thumbnail.knative-serverless.10.96.30.55.nip.io
 hey -z 300s -c 10 -o csv http://thumbnail.knative-serverless.10.96.30.55.nip.io > thumbnail-multiple-10.csv
 hey -z 300s -c 50 http://thumbnail.knative-serverless.10.96.30.55.nip.io

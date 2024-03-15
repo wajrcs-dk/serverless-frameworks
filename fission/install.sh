@@ -137,8 +137,8 @@ fission fn test --name thumbnail-single
 fission route create --method GET --url /thumbnail-single --function thumbnail-single
 curl http://10.4.110.208:31314/thumbnail-single
 X hey -z 60s -c 10 http://10.4.110.208:31314/thumbnail-single
-X hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail-single > thumbnail-single-10.csv
-X hey -z 300s -c 10 -o csv http://10.4.110.208:31314/thumbnail-single
+X hey -z 300s -c 10 http://10.4.110.208:31314/thumbnail-single
+X hey -z 300s -c 10 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-10.csv
 X hey -z 300s -c 50 http://10.4.110.208:31314/thumbnail-single
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/thumbnail-single

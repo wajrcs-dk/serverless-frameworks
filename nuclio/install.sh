@@ -190,11 +190,11 @@ sudo nuctl deploy thumbnail-single \
 curl  http://0.0.0.0:32772
 X hey -z 60s -c 10  http://0.0.0.0:32772
 X hey -z 300s -c 10  http://0.0.0.0:32772
-X hey -z 300s -c 10 -o csv http://0.0.0.0:32772 > users-single-10.csv
+X hey -z 300s -c 10 -o csv http://0.0.0.0:32772 > thumbnail-single-10.csv
 X hey -z 300s -c 50  http://0.0.0.0:32772
-X hey -z 300s -c 50 -o csv http://0.0.0.0:32772 > users-single-50.csv
+X hey -z 300s -c 50 -o csv http://0.0.0.0:32772 > thumbnail-single-50.csv
 X hey -z 300s -c 150  http://0.0.0.0:32772
-X hey -z 300s -c 150 -o csv http://0.0.0.0:32772 > users-single-150.csv
+X hey -z 300s -c 150 -o csv http://0.0.0.0:32772 > thumbnail-single-150.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -209,12 +209,12 @@ sudo nuctl deploy thumbnail \
 curl  http://0.0.0.0:32773
 X hey -z 60s -c 10  http://0.0.0.0:32773
 X hey -z 300s -c 10  http://0.0.0.0:32773
-X hey -z 300s -c 10  http://0.0.0.0:32773 > users-multiple-10.csv
+X hey -z 300s -c 10 -o csv http://0.0.0.0:32773 > thumbnail-multiple-10.csv
 X hey -z 300s -c 50  http://0.0.0.0:32773
-X hey -z 300s -c 50  http://0.0.0.0:32773 > users-multiple-50.csv
+X hey -z 300s -c 50 -o csv http://0.0.0.0:32773 > thumbnail-multiple-50.csv
 X hey -z 300s -c 150  http://0.0.0.0:32773
-X hey -z 300s -c 150  http://0.0.0.0:32773 > users-multiple-150.csv
+X hey -z 300s -c 150 -o csv http://0.0.0.0:32773 > thumbnail-multiple-150.csv
 X hey -z 300s -c 250  http://0.0.0.0:32773
-X hey -z 300s -c 250  http://0.0.0.0:32773 > users-multiple-250.csv
+X hey -z 300s -c 250 -o csv http://0.0.0.0:32773 > thumbnail-multiple-250.csv
 X hey -z 300s -c 1000  http://0.0.0.0:32773
-X hey -z 300s -c 1000  http://0.0.0.0:32773 > users-multiple-1000.csv
+X hey -z 300s -c 1000 -o csv http://0.0.0.0:32773 > thumbnail-multiple-1000.csv
