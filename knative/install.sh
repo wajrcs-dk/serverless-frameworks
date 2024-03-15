@@ -106,8 +106,8 @@ hey -z 300s -c 1000 -o csv http://quicksort.knative-serverless.10.96.30.55.nip.i
 
 # Users
 cd users
-docker build -t "wajrcs/users-knative" .
-docker push wajrcs/users-knative
+docker build -t "wajrcs/users-knative-v2" .
+docker push wajrcs/users-knative-v2
 kubectl apply --filename service.yaml
 kubectl apply --filename service-single.yaml
 # Single

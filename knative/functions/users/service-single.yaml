@@ -14,7 +14,7 @@ spec:
         autoscaling.knative.dev/max-scale: "1"
     spec:
       containers:
-      - image: docker.io/wajrcs/users-knative
+      - image: docker.io/wajrcs/users-knative-v2
         env:
         - name: TARGET
           value: "Python Sample v1"
