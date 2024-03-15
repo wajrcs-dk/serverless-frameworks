@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/')
 def users():
     mydb = mysql.connector.connect(
-        host="mysql-read.default.svc.cluster.local",
+        host="10.105.3.242",
         user="root",
         password="",
         database="dzhw",
