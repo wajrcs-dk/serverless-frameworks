@@ -11,7 +11,11 @@ sudo mkdir /mnt/data
 kubectl apply -f mysql-client.yaml
 kubectl apply -f mysql-configmap.yaml
 kubectl apply -f mysql-services.yaml
+kubectl delete -f mysql-statefulset.yaml
 kubectl apply -f mysql-statefulset.yaml
+
+# Watch
+kubectl get pods -l app=mysql --watch
 
 # ssh
 kubectl exec -it mysql-client -- bin/sh

@@ -150,8 +150,8 @@ spec:
               mountPath: /etc/mysql/conf.d
           resources:
             requests:
-              cpu: 100m
-              memory: 100Mi
+              cpu: 500m
+              memory: 500Mi
       volumes:
         - name: conf
           emptyDir: {}

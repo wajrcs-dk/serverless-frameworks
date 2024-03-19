@@ -13,38 +13,38 @@ git clone https://github.com/apache/openwhisk-deploy-kube.git  && cd openwhisk-d
 
 nano mycluster.yaml
 
+controller:
+  replicaCount: 2
 whisk:
   ingress:
     type: NodePort
     apiHostName: 192.168.49.2
     apiHostPort: 31001
   limits:
-    actionsInvokesPerminute: 1000
-    actionsInvokesConcurrent: 1000
-    triggersFiresPerminute: 60
-    actionsSequenceMaxlength: 50
+    actionsInvokesPerminute: 75000
+    actionsInvokesConcurrent: 250
+    triggersFiresPerminute: 75000
+    actionsSequenceMaxlength: 75000
     actions:
-      time:
-        min: "100ms"
-        max: "5m"
-        std: "1m"
-      memory:
-        min: "128m"
-        max: "512m"
-        std: "256m"
+      minuteRate: 75000
       concurrency:
         min: 1
-        max: 10000
-        std: 5000
-      log:
-        min: "0m"
-        max: "10m"
-        std: "10m"
+        max: 1000
+        std: 150
     activation:
       payload:
         max: "1048576"
+k8s:
+  persistence:
+    enabled: false
 nginx:
   httpsNodePort: 31001
+invoker:
+  containerFactory:
+    impl: "kubernetes"
+metrics:
+  prometheusEnabled: true
+  userMetricsEnabled: true
 
 wget https://github.com/apache/openwhisk-cli/releases/download/latest/OpenWhisk_CLI-latest-linux-386.tgz
 tar -xvf OpenWhisk_CLI-latest-linux-386.tgz
@@ -58,7 +58,7 @@ helm install owdev ./helm/openwhisk -n openwhisk --create-namespace -f mycluster
 helm uninstall owdev -n openwhisk
 
 kubectl -n openwhisk get pods -w
-wsk property set --apihost 10.4.110.208:31001
+wsk property set --apihost 192.168.49.2:31001
 wsk property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
 wsk list -i
 wsk api list -i
@@ -69,18 +69,30 @@ export NODE_TLS_REJECT_UNAUTHORIZED="0"
 cd fibonacci
 wsk api list -i
 wskdeploy -m fibonacci.yaml
-curl --insecure https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
-hey -z 60s -c 10 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
-hey -z 300s -c 10 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
-hey -z 300s -c 50 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
-hey -z 300s -c 150 https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
+curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 60s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
+hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-10.csv
+hey -z 300s -c 50 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-50.csv
+hey -z 300s -c 150 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-150.csv
+hey -z 300s -c 250 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-multiple-250.csv
+hey -z 300s -c 1000 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-multiple-1000.csv
 
 # Quicksort
 cd quicksort
 wsk api list -i
 wskdeploy -m quicksort.yaml
-curl --insecure https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10
-hey -z 300s -c 10  https://10.4.110.208:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 60s -c 10  https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-10.csv
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-50.csv
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-150.csv
+hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-250.csv
+hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-1000.csv
 
 # Users
 cd users

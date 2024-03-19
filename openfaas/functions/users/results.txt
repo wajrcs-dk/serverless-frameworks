@@ -1,0 +1,177 @@
+hey -z 60s -c 10 http://10.4.110.208:31112/function/users
+
+Summary:
+  Total:        60.1299 secs
+  Slowest:      2.7741 secs
+  Fastest:      0.1221 secs
+  Average:      0.3134 secs
+  Requests/sec: 31.8810
+
+
+Response time histogram:
+  0.122 [1]     |
+  0.387 [1376]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.653 [534]   |■■■■■■■■■■■■■■■■
+  0.918 [5]     |
+  1.183 [0]     |
+  1.448 [0]     |
+  1.713 [0]     |
+  1.978 [0]     |
+  2.244 [0]     |
+  2.509 [0]     |
+  2.774 [1]     |
+
+
+Latency distribution:
+  10% in 0.1520 secs
+  25% in 0.2098 secs
+  50% in 0.3128 secs
+  75% in 0.3967 secs
+  90% in 0.4686 secs
+  95% in 0.5179 secs
+  99% in 0.6050 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.1221 secs, 2.7741 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:    0.3132 secs, 0.1216 secs, 2.7739 secs
+  resp read:    0.0002 secs, 0.0000 secs, 0.0116 secs
+
+Status code distribution:
+  [200] 1917 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 10 http://10.4.110.208:31112/function/users
+
+Summary:
+  Total:        300.1877 secs
+  Slowest:      2.9397 secs
+  Fastest:      0.1182 secs
+  Average:      0.2318 secs
+  Requests/sec: 43.1363
+
+
+Response time histogram:
+  0.118 [1]     |
+  0.400 [12190] |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.683 [730]   |■■
+  0.965 [4]     |
+  1.247 [0]     |
+  1.529 [0]     |
+  1.811 [0]     |
+  2.093 [0]     |
+  2.375 [0]     |
+  2.658 [5]     |
+  2.940 [19]    |
+
+
+Latency distribution:
+  10% in 0.1365 secs
+  25% in 0.1518 secs
+  50% in 0.1987 secs
+  75% in 0.2827 secs
+  90% in 0.3622 secs
+  95% in 0.4120 secs
+  99% in 0.5195 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.1182 secs, 2.9397 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0009 secs
+  resp wait:    0.2313 secs, 0.1180 secs, 2.9395 secs
+  resp read:    0.0004 secs, 0.0000 secs, 0.2099 secs
+
+Status code distribution:
+  [200] 12949 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 http://10.4.110.208:31112/function/users
+
+Summary:
+  Total:        300.7924 secs
+  Slowest:      6.1666 secs
+  Fastest:      0.1194 secs
+  Average:      1.1113 secs
+  Requests/sec: 44.9346
+
+
+Response time histogram:
+  0.119 [1]     |
+  0.724 [6558]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.329 [2122]  |■■■■■■■■■■■■■
+  1.934 [1882]  |■■■■■■■■■■■
+  2.538 [1481]  |■■■■■■■■■
+  3.143 [849]   |■■■■■
+  3.748 [406]   |■■
+  4.352 [156]   |■
+  4.957 [45]    |
+  5.562 [13]    |
+  6.167 [3]     |
+
+
+Latency distribution:
+  10% in 0.1456 secs
+  25% in 0.2207 secs
+  50% in 0.7790 secs
+  75% in 1.7830 secs
+  90% in 2.6005 secs
+  95% in 3.0756 secs
+  99% in 3.9571 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.1194 secs, 6.1666 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0027 secs
+  resp wait:    1.1109 secs, 0.1191 secs, 6.1663 secs
+  resp read:    0.0004 secs, 0.0000 secs, 0.2052 secs
+
+Status code distribution:
+  [200] 13516 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 150 http://10.4.110.208:31112/function/users
+
+Summary:
+  Total:        302.4464 secs
+  Slowest:      14.9576 secs
+  Fastest:      0.1183 secs
+  Average:      3.3425 secs
+  Requests/sec: 44.7154
+
+
+Response time histogram:
+  0.118 [1]     |
+  1.602 [6103]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  3.086 [1249]  |■■■■■■■■
+  4.570 [1410]  |■■■■■■■■■
+  6.054 [1493]  |■■■■■■■■■■
+  7.538 [1471]  |■■■■■■■■■■
+  9.022 [931]   |■■■■■■
+  10.506 [558]  |■■■■
+  11.990 [239]  |■■
+  13.474 [57]   |
+  14.958 [12]   |
+
+
+Latency distribution:
+  10% in 0.1519 secs
+  25% in 0.2629 secs
+  50% in 2.3345 secs
+  75% in 5.9613 secs
+  90% in 8.1193 secs
+  95% in 9.4723 secs
+  99% in 11.3933 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.1183 secs, 14.9576 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0098 secs
+  resp wait:    3.3417 secs, 0.1181 secs, 14.9574 secs
+  resp read:    0.0007 secs, 0.0000 secs, 0.4381 secs
+
+Status code distribution:
+  [200] 13524 responses
