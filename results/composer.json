@@ -1,0 +1,7 @@
+{
+    "require": {
+        "spatie/laravel-blade": "^1.0",
+        "ext-json": "*",
+        "hi-folks/statistics": "^1.0"
+    }
+}

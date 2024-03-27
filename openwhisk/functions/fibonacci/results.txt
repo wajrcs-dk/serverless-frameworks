@@ -1,0 +1,146 @@
+hey -z 60s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/hello/world?x=100
+
+Summary:
+  Total:        60.0778 secs
+  Slowest:      5.0177 secs
+  Fastest:      0.0285 secs
+  Average:      0.1342 secs
+  Requests/sec: 74.4867
+
+  Total data:   5669825 bytes
+  Size/request: 1267 bytes
+
+Response time histogram:
+  0.028 [1]     |
+  0.527 [4464]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.026 [0]     |
+  1.525 [0]     |
+  2.024 [0]     |
+  2.523 [4]     |
+  3.022 [2]     |
+  3.521 [0]     |
+  4.020 [1]     |
+  4.519 [1]     |
+  5.018 [2]     |
+
+
+Latency distribution:
+  10% in 0.0795 secs
+  25% in 0.0959 secs
+  50% in 0.1188 secs
+  75% in 0.1478 secs
+  90% in 0.1884 secs
+  95% in 0.2182 secs
+  99% in 0.2874 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0285 secs, 5.0177 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0028 secs
+  resp wait:    0.1340 secs, 0.0283 secs, 5.0091 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0026 secs
+
+Status code distribution:
+  [200] 4475 responses
+
+---------------------------------------------------------------
+
+ hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+
+Summary:
+  Total:        300.3204 secs
+  Slowest:      0.7176 secs
+  Fastest:      0.0366 secs
+  Average:      0.1855 secs
+  Requests/sec: 53.8891
+
+  Total data:   20505128 bytes
+  Size/request: 1267 bytes
+
+Response time histogram:
+  0.037 [1]     |
+  0.105 [1490]  |■■■■■■■■■
+  0.173 [6775]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.241 [4942]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.309 [1911]  |■■■■■■■■■■■
+  0.377 [608]   |■■■■
+  0.445 [302]   |■■
+  0.513 [92]    |■
+  0.581 [40]    |
+  0.650 [19]    |
+  0.718 [4]     |
+
+
+Latency distribution:
+  10% in 0.1064 secs
+  25% in 0.1333 secs
+  50% in 0.1710 secs
+  75% in 0.2203 secs
+  90% in 0.2794 secs
+  95% in 0.3296 secs
+  99% in 0.4431 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0366 secs, 0.7176 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0007 secs
+  resp wait:    0.1853 secs, 0.0365 secs, 0.7174 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0070 secs
+
+Status code distribution:
+  [200] 16184 responses
+
+---------------------------------------------------------------
+
+hey -z 300s -c 50 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+
+Summary:
+  Total:        301.3735 secs
+  Slowest:      2.8090 secs
+  Fastest:      0.1687 secs
+  Average:      1.3030 secs
+  Requests/sec: 38.3013
+
+  Total data:   14624981 bytes
+  Size/request: 1267 bytes
+
+Response time histogram:
+  0.169 [1]     |
+  0.433 [13]    |
+  0.697 [26]    |
+  0.961 [1731]  |■■■■■■■■■■■■■■■■■■■
+  1.225 [2907]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.489 [3684]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.753 [2468]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.017 [516]   |■■■■■■
+  2.281 [145]   |■■
+  2.545 [36]    |
+  2.809 [16]    |
+
+
+Latency distribution:
+  10% in 0.9115 secs
+  25% in 1.0387 secs
+  50% in 1.3147 secs
+  75% in 1.5081 secs
+  90% in 1.6660 secs
+  95% in 1.7868 secs
+  99% in 2.1440 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0001 secs, 0.1687 secs, 2.8090 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0021 secs
+  resp wait:    1.3027 secs, 0.1157 secs, 2.8088 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0063 secs
+
+Status code distribution:
+  [200] 11543 responses
+
+---------------------------------------------------------------
+
+
+---------------------------------------------------------------
+
+
+---------------------------------------------------------------

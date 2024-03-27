@@ -23,7 +23,7 @@ packages:
     actions:
       quicksort:
         function: quicksort.py
-        runtime: python
+        runtime: python:3.7
         annotations:
           web-export: true
     apis:

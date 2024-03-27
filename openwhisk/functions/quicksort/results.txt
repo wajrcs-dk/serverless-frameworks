@@ -1,0 +1,44 @@
+hey -z 60s -c 10  https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-22
+
+Summary:
+  Total:        60.1393 secs
+  Slowest:      7.2257 secs
+  Fastest:      0.0526 secs
+  Average:      0.1844 secs
+  Requests/sec: 54.1743
+
+  Total data:   651600 bytes
+  Size/request: 200 bytes
+
+Response time histogram:
+  0.053 [1]     |
+  0.770 [3248]  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.487 [2]     |
+  2.205 [0]     |
+  2.922 [0]     |
+  3.639 [0]     |
+  4.356 [0]     |
+  5.074 [2]     |
+  5.791 [1]     |
+  6.508 [2]     |
+  7.226 [2]     |
+
+
+Latency distribution:
+  10% in 0.1102 secs
+  25% in 0.1332 secs
+  50% in 0.1652 secs
+  75% in 0.2011 secs
+  90% in 0.2423 secs
+  95% in 0.2699 secs
+  99% in 0.3503 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0000 secs, 0.0526 secs, 7.2257 secs
+  DNS-lookup:   0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:    0.0000 secs, 0.0000 secs, 0.0018 secs
+  resp wait:    0.1842 secs, 0.0435 secs, 7.2192 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0042 secs
+
+Status code distribution:
+  [200] 3258 responses
