@@ -50,6 +50,7 @@ X hey -z 300s -c 50 http://0.0.0.0:32768
 X hey -z 300s -c 50 -o csv http://0.0.0.0:32768 > fibonacci-single-50.csv
 X hey -z 300s -c 150 http://0.0.0.0:32768
 X hey -z 300s -c 150 -o csv http://0.0.0.0:32768 > fibonacci-single-150.csv
+X hey -n 200000 -c 150 -o csv http://0.0.0.0:32768 > fibonacci-single-200k.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -72,6 +73,7 @@ X hey -z 300s -c 250 http://0.0.0.0:32769
 X hey -z 300s -c 250 -o csv http://0.0.0.0:32769 > fibonacci-multiple-250.csv
 X hey -z 300s -c 1000 http://0.0.0.0:32769
 X hey -z 300s -c 1000 -o csv http://0.0.0.0:32769 > fibonacci-multiple-1000.csv
+hey -n 200000 -c 150 -o csv http://0.0.0.0:32769 > fibonacci-multiple-200k.csv
 
 # Quicksort
 cd quicksort
@@ -92,6 +94,7 @@ X hey -z 300s -c 50 http://0.0.0.0:32770
 X hey -z 300s -c 50 -o csv http://0.0.0.0:32770 > quicksort-single-50.csv
 X hey -z 300s -c 150 http://0.0.0.0:32770
 X hey -z 300s -c 150 -o csv http://0.0.0.0:32770 > quicksort-single-150.csv
+X hey -n 200000 -c 150 -o csv http://0.0.0.0:32770 > quicksort-single-200k.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -114,6 +117,7 @@ X hey -z 300s -c 250 http://0.0.0.0:32770
 X hey -z 300s -c 250 -o csv http://0.0.0.0:32770 > quicksort-multiple-250.csv
 X hey -z 300s -c 1000 http://0.0.0.0:32770
 X hey -z 300s -c 1000 -o csv http://0.0.0.0:32770 > quicksort-multiple-1000.csv
+hey -n 200000 -c 150 -o csv http://0.0.0.0:32770 > quicksort-multiple-200k.csv
 
 # Users
 cd users
@@ -129,14 +133,15 @@ sudo nuctl deploy users-single \
   --run-image users:v1 \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
-curl http://0.0.0.0:32779
-hey -z 60s -c 10 http://0.0.0.0:32779
+curl http://0.0.0.0:32774
+hey -z 60s -c 10 http://0.0.0.0:32774
 hey -z 300s -c 10 http://0.0.0.0:32779
 hey -z 300s -c 10 -o csv http://0.0.0.0:32779 > users-single-10.csv
 hey -z 300s -c 50 http://0.0.0.0:32779
 hey -z 300s -c 50 -o csv http://0.0.0.0:32779 > users-single-50.csv
 hey -z 300s -c 150 http://0.0.0.0:32779
 hey -z 300s -c 150 -o csv http://0.0.0.0:32779 > users-single-150.csv
+hey -n 200000 -c 150 -o csv http://0.0.0.0:32774 > users-single-200k.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -148,8 +153,8 @@ sudo nuctl deploy users \
   --run-image users:v1 \
   --http-trigger-service-type NodePort \
   --registry docker.io/wajrcs
-curl  http://0.0.0.0:32780
-hey -z 60s -c 10 http://0.0.0.0:32780
+curl  http://0.0.0.0:32775
+hey -z 60s -c 10 http://0.0.0.0:32775
 hey -z 300s -c 10 http://0.0.0.0:32780
 hey -z 300s -c 10 -o csv http://0.0.0.0:32780 > users-multiple-10.csv
 hey -z 300s -c 50 http://0.0.0.0:32780
@@ -160,6 +165,7 @@ hey -z 300s -c 250 http://0.0.0.0:32780
 hey -z 300s -c 250 -o csv http://0.0.0.0:32780 > users-multiple-250.csv
 hey -z 300s -c 1000 http://0.0.0.0:32780
 hey -z 300s -c 1000 -o csv http://0.0.0.0:32780 > users-multiple-1000.csv
+hey -n 200000 -c 150 -o csv http://0.0.0.0:32775 > users-multiple-200k.csv
 # Fixed
 rm function.yaml
 cp function-fixed.yaml function.yaml
@@ -195,6 +201,7 @@ X hey -z 300s -c 50  http://0.0.0.0:32772
 X hey -z 300s -c 50 -o csv http://0.0.0.0:32772 > thumbnail-single-50.csv
 X hey -z 300s -c 150  http://0.0.0.0:32772
 X hey -z 300s -c 150 -o csv http://0.0.0.0:32772 > thumbnail-single-150.csv
+X hey -n 200000 -c 150 -o csv http://0.0.0.0:32772 > thumbnail-single-200k.csv
 # Multiple
 rm function.yaml
 cp function-multiple.yaml function.yaml
@@ -218,3 +225,4 @@ X hey -z 300s -c 250  http://0.0.0.0:32773
 X hey -z 300s -c 250 -o csv http://0.0.0.0:32773 > thumbnail-multiple-250.csv
 X hey -z 300s -c 1000  http://0.0.0.0:32773
 X hey -z 300s -c 1000 -o csv http://0.0.0.0:32773 > thumbnail-multiple-1000.csv
+X hey -n 200000 -c 150 -o csv http://0.0.0.0:32773 > thumbnail-multiple-200k.csv

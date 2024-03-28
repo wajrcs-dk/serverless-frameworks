@@ -48,6 +48,7 @@ X hey -z 300s -c 50 http://10.4.110.208:31314/fibonacci-single?x=1000
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/fibonacci-single?x=1000 > fibonacci-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/fibonacci-single?x=1000
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/fibonacci-single?x=1000 > fibonacci-single-150.csv
+X hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/fibonacci-single?x=1000 > fibonacci-single-200k.csv
 # Multiple
 fission fn create --name fibonacci --env python --code fibonacci.py --executortype newdeploy --minscale 1 --maxscale 1000
 fission route create --method GET --url /fibonacci --function fibonacci
@@ -63,6 +64,7 @@ X hey -z 300s -c 250 http://10.4.110.208:31314/fibonacci?x=1000
 X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-250.csv
 X hey -z 300s -c 1000 http://10.4.110.208:31314/fibonacci?x=1000
 X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-1000.csv
+X hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/fibonacci?x=1000 > fibonacci-multiple-200k.csv
 # Quicksort
 cd quicksort
 # Single
@@ -76,6 +78,7 @@ X hey -z 300s -c 50 http://10.4.110.208:31314/quicksort-single?x=1,7,4,1,10,9,-2
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/quicksort-single?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/quicksort-single?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/quicksort-single?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-150.csv
+hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/quicksort-single?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-200k.csv
 # Multiple
 fission function create --name quicksort --env python --code quicksort.py --executortype newdeploy --minscale 1 --maxscale 1000
 fission route create --method GET --url /quicksort --function quicksort
@@ -91,6 +94,7 @@ X hey -z 300s -c 250 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4
 X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-250.csv
 X hey -z 300s -c 1000 http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-1000.csv
+hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/quicksort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-200k.csv
 
 # Users
 cd users
@@ -110,6 +114,7 @@ X hey -z 300s -c 50 http://10.4.110.208:31314/users-single
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/users-single > users-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/users-single
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/users-single > users-single-150.csv
+hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/users-single > users-single-200k.csv
 # Multiple
 fission function create --name users --env env-users --code users.py --executortype newdeploy --minscale 1 --maxscale 1000
 fission route create --method GET --url /users --function users
@@ -125,6 +130,7 @@ X hey -z 300s -c 250 http://10.4.110.208:31314/users
 X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/users > users-multiple-250.csv
 X hey -z 300s -c 1000 http://10.4.110.208:31314/users
 X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/users > users-multiple-1000.csv
+hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/users > users-multiple-200k.csv
 
 # Thumbnail Generator
 cd thumbnail
@@ -143,6 +149,7 @@ X hey -z 300s -c 50 http://10.4.110.208:31314/thumbnail-single
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31314/thumbnail-single
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-150.csv
+hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/thumbnail-single > thumbnail-single-200k.csv
 # Multiple
 fission function create --name thumbnail --env thumbnail --code thumbnail.py --executortype newdeploy --minscale 1 --maxscale 1000
 fission fn test --name thumbnail
@@ -159,3 +166,4 @@ X hey -z 300s -c 250 http://10.4.110.208:31314/thumbnail
 X hey -z 300s -c 250 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-250.csv
 X hey -z 300s -c 1000 http://10.4.110.208:31314/thumbnail
 X hey -z 300s -c 1000 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-1000.csv
+hey -n 200000 -c 150 -o csv http://10.4.110.208:31314/thumbnail > thumbnail-multiple-200k.csv
