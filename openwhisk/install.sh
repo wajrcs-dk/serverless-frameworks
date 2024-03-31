@@ -3,6 +3,8 @@
 # Source
 # https://medium.com/@ansjin/openwhisk-deployment-on-a-kubernetes-cluster-7fd3fc2f3726
 # https://github.com/apache/openwhisk-deploy-kube#initial-setup
+# https://gist.github.com/aweijnitz/fa209cba244484afed0b824fb4c3e9f0
+# https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-prep
 
 kubectl create namespace openwhisk
 kubectl label nodes vmserverless0 openwhisk-role=core
@@ -13,12 +15,15 @@ git clone https://github.com/apache/openwhisk-deploy-kube.git  && cd openwhisk-d
 
 nano mycluster.yaml
 
+10.4.110.208
+192.168.49.2
+
 controller:
-  replicaCount: 2
+  replicaCount: 1
 whisk:
   ingress:
     type: NodePort
-    apiHostName: 192.168.49.2
+    apiHostName: 10.4.110.208
     apiHostPort: 31001
   limits:
     actionsInvokesPerminute: 75000
@@ -59,6 +64,7 @@ helm uninstall owdev -n openwhisk
 
 kubectl -n openwhisk get pods -w
 wsk property set --apihost 192.168.49.2:31001
+wsk property set --apihost 10.4.110.208:31001
 wsk property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
 wsk list -i
 wsk api list -i
@@ -71,12 +77,20 @@ wsk api list -i
 wskdeploy -m fibonacci.yaml
 curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
 hey -z 60s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
+# Single
 hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
 hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-10.csv
 hey -z 300s -c 50 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
 hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-50.csv
 hey -z 300s -c 150 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
 hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-150.csv
+# Multiple
+hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-multiple-10.csv
+hey -z 300s -c 50 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-multiple-50.csv
+hey -z 300s -c 150 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-multiple-150.csv
 hey -z 300s -c 250 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
 hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-multiple-250.csv
 hey -z 300s -c 1000 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
@@ -87,15 +101,49 @@ cd quicksort
 wsk api list -i
 wskdeploy -m quicksort.yaml
 curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+# Single
 hey -z 60s -c 10  https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
 hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-10.csv
 hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-50.csv
 hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-single-150.csv
+# Multiple
+hey -z 60s -c 10  https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-10.csv
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-50.csv
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-150.csv
 hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-250.csv
 hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-1000.csv
 
 # Users
 cd users
+sudo apt install python3-pip
+pip3 install virtualenv
+sudo apt install python3-virtualenv
+virtualenv virtualenv
+source virtualenv/bin/activate
+python --version
+pip install mysql-connector-python-rf
+deactivate
+# delete old action for testing
+wsk action delete users -i
+rm users.zip
+# deploy function
+zip -r users.zip virtualenv __main__.py
+wsk action create users users.zip --web true --kind python:3  -i
+wsk action invoke users --result  -i
+wsk api create /users get users --response-type json  -i
+curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users
+hey -z 60s -c 10  https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users
+# Single
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-single-10.csv
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-single-50.csv
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-single-150.csv
+# Multiple
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-multiple-10.csv
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-multiple-50.csv
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-multiple-150.csv
+hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-multiple-250.csv
+hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/users > users-multiple-1000.csv
 
 # Thumbnail Generator
 cd thumbnail
