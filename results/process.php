@@ -153,6 +153,16 @@ function readCsv($file, $iteration): array
 {
     echo 'Processing File: ', $file, PHP_EOL;
     $list = [];
+    $return = [
+        'count' => 0,
+        'mean' => 0,
+        'firstQuartile' => 0,
+        'thirdQuartile' => 0,
+        'min' => 0,
+        'max' => 0,
+        'outliers' => 0,
+        'series' => []
+    ];
     if (file_exists($file)) {
         $file = fopen($file, 'r');
         while (($line = fgetcsv($file)) !== FALSE) {
@@ -161,39 +171,34 @@ function readCsv($file, $iteration): array
             }
         }
         fclose($file);
-    }
-    if (count($list) > 0) {
-        $newList = removeOutliers($list);
-        $stat = HiFolks\Statistics\Statistics::make($newList);
-        return [
-            'count' => $stat->count(),
-            'mean' => $stat->mean(),
-            'firstQuartile' => $stat->firstQuartile(),
-            'thirdQuartile' => $stat->thirdQuartile(),
-            'min' => $stat->min(),
-            'max' => $stat->max(),
-            'outliers' => $stat->count() - count($newList),
-            'series' => ($iteration==='-single-150' || $iteration==='-multiple-150') ? $list : []
-        ];
+        if (count($list) > 0) {
+            $newList = removeOutliers($list);
+            $stat = HiFolks\Statistics\Statistics::make($newList);
+            $return = [
+                'count' => $stat->count(),
+                'mean' => $stat->mean(),
+                'firstQuartile' => $stat->firstQuartile(),
+                'thirdQuartile' => $stat->thirdQuartile(),
+                'min' => $stat->min(),
+                'max' => $stat->max(),
+                'outliers' => $stat->count() - count($newList),
+                'series' => ($iteration==='-single-200k' || $iteration==='-multiple-200k') ? $list : []
+            ];
+        }
     } else {
-        return [
-            'count' => 0,
-            'mean' => 0,
-            'firstQuartile' => 0,
-            'thirdQuartile' => 0,
-            'min' => 0,
-            'max' => 0,
-            'outliers' => 0,
-            'series' => []
-        ];
+        echo 'File Not Found: ', $file, PHP_EOL;
     }
+    return $return;
 }
 
 function process()
 {
     $frameworks = ['fission', 'knative', 'nuclio', 'openfaas', 'openwhisk'];
     $functions = ['fibonacci', 'quicksort', 'thumbnail', 'users'];
-    $iterations = ['-single-10', '-single-50', '-single-150', '-multiple-10', '-multiple-50', '-multiple-150', '-multiple-250', '-multiple-1000'];
+    $iterations = [
+        '-single-10', '-single-50', '-single-150', '-single-200k', '-multiple-10', '-multiple-50', '-multiple-150',
+        '-multiple-250', '-multiple-1000', '-multiple-200k'
+    ];
     $finalJson = [];
     foreach ($frameworks as $framework) {
         foreach ($functions as $function) {

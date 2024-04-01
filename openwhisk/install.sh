@@ -10,6 +10,8 @@ kubectl create namespace openwhisk
 kubectl label nodes vmserverless0 openwhisk-role=core
 kubectl label nodes vmserverless1 openwhisk-role=invoker
 kubectl label nodes vmserverless2 openwhisk-role=invoker
+# Minikube
+kubectl label nodes --all openwhisk-role=invoker --overwrite
 
 git clone https://github.com/apache/openwhisk-deploy-kube.git  && cd openwhisk-deploy-kube
 
@@ -63,8 +65,8 @@ helm install owdev ./helm/openwhisk -n openwhisk --create-namespace -f mycluster
 helm uninstall owdev -n openwhisk
 
 kubectl -n openwhisk get pods -w
-wsk property set --apihost 192.168.49.2:31001
 wsk property set --apihost 10.4.110.208:31001
+wsk property set --apihost 192.168.49.2:31001
 wsk property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
 wsk list -i
 wsk api list -i
@@ -76,7 +78,7 @@ cd fibonacci
 wsk api list -i
 wskdeploy -m fibonacci.yaml
 curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
-hey -z 60s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
+hey -z 60s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100
 # Single
 hey -z 300s -c 10 https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=1000
 hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/fibo/nacci?x=100 > fibonacci-single-10.csv
@@ -114,11 +116,12 @@ hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54
 hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-250.csv
 hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/quick/sort?x=1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2 > quicksort-multiple-1000.csv
 
-# Users
-cd users
 sudo apt install python3-pip
 pip3 install virtualenv
 sudo apt install python3-virtualenv
+
+# Users
+cd users
 virtualenv virtualenv
 source virtualenv/bin/activate
 python --version
@@ -147,3 +150,18 @@ hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c5
 
 # Thumbnail Generator
 cd thumbnail
+virtualenv virtualenv
+source virtualenv/bin/activate
+python --version
+pip install Pillow
+deactivate
+# delete old action for testing
+wsk action delete thumbnail -i
+rm thumbnail.zip
+rm __main__.py
+nano __main__.py
+# deploy function
+zip -r thumbnail.zip virtualenv __main__.py image.jpg
+wsk action create thumbnail thumbnail.zip --web true --kind python:3 -i --param-file image.json
+wsk action invoke thumbnail --result  -i
+wsk api create /thumbnail get thumbnail --response-type json  -i

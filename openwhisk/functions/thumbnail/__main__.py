@@ -18,10 +18,11 @@
  */
 """
 from random import randint
-from PIL import Image
+import os
+# from PIL import Image
 
 def main(dict):
-    image = Image.open(r"/home/app/image.jpg")
+    image = Image.open(r"image.jpg")
     MAX_SIZE = (100, 100)
     image.thumbnail(MAX_SIZE)
     result = 'thumb'+str(randint(100000000000, 999999999999))+'.jpg'
