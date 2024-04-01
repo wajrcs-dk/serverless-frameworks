@@ -42,6 +42,7 @@ X hey -z 300s -c 50 http://10.4.110.208:31112/function/fibonacci -d "1000"
 X hey -z 300s -c 50 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-single-50.csv
 X hey -z 300s -c 150 http://10.4.110.208:31112/function/fibonacci -d "1000"
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-single-150.csv
+X hey -n 200000 -c 150 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-single-200k.csv
 
 # Quicksort
 cd quicksort

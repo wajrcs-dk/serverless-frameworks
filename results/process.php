@@ -56,24 +56,24 @@ function processFinal()
                 $dataJson[$framework][$function][2]['max'],
                 $dataJson[$framework][$function][2]['outliers'],
             ];
-            $singleSeries[$index] = $dataJson[$framework][$function][2]['series'];
+            $singleSeries[$index] = $dataJson[$framework][$function][3]['series'];
             $multipleBarChart[$index] = [
-                perSec($dataJson[$framework][$function][3]['count']), // 10
-                perSec($dataJson[$framework][$function][4]['count']), // 50
-                perSec($dataJson[$framework][$function][5]['count']), // 150
-                perSec($dataJson[$framework][$function][6]['count']), // 250
-                perSec($dataJson[$framework][$function][7]['count']), // 1000
+                perSec($dataJson[$framework][$function][4]['count']), // 10
+                perSec($dataJson[$framework][$function][5]['count']), // 50
+                perSec($dataJson[$framework][$function][6]['count']), // 150
+                perSec($dataJson[$framework][$function][7]['count']), // 250
+                perSec($dataJson[$framework][$function][8]['count']), // 1000
             ];
             $multipleBarChart[$index][5] = avg($multipleBarChart[$index], 5);
             $multipleBoxPlot[$index] = [
-                $dataJson[$framework][$function][5]['min'],
-                $dataJson[$framework][$function][5]['firstQuartile'],
-                $dataJson[$framework][$function][5]['mean'],
-                $dataJson[$framework][$function][5]['thirdQuartile'],
-                $dataJson[$framework][$function][5]['max'],
-                $dataJson[$framework][$function][5]['outliers'],
+                $dataJson[$framework][$function][6]['min'],
+                $dataJson[$framework][$function][6]['firstQuartile'],
+                $dataJson[$framework][$function][6]['mean'],
+                $dataJson[$framework][$function][6]['thirdQuartile'],
+                $dataJson[$framework][$function][6]['max'],
+                $dataJson[$framework][$function][6]['outliers'],
             ];
-            $multipleSeries[$index] = $dataJson[$framework][$function][5]['series'];
+            $multipleSeries[$index] = $dataJson[$framework][$function][9]['series'];
             $index++;
         }
 
