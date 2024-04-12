@@ -153,9 +153,14 @@ hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c5
 
 # Thumbnail Generator
 cd thumbnail
+# https://www.linuxcapable.com/how-to-install-python-3-7-on-ubuntu-linux/
+python3.7 -m venv virtualenv
+sudo apt-get install python3.7-distutils
 virtualenv virtualenv
+virtualenv virtualenv --python=python3.7
 source virtualenv/bin/activate
 python --version
+pip install typing_extensions
 pip install Pillow
 deactivate
 # delete old action for testing
@@ -165,6 +170,20 @@ rm __main__.py
 nano __main__.py
 # deploy function
 zip -r thumbnail.zip virtualenv __main__.py image.jpg
-wsk action create thumbnail thumbnail.zip --web true --kind python:3 -i --param-file image.json
+wsk action create thumbnail thumbnail.zip --web true --kind python:3 -i
 wsk action invoke thumbnail --result  -i
 wsk api create /thumbnail get thumbnail --response-type json  -i
+wsk activation get --last -i
+curl --insecure https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail
+hey -z 60s -c 10  https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail
+# Single
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-single-10.csv
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-single-50.csv
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-single-150.csv
+# Multiple
+hey -z 300s -c 10 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-multiple-10.csv
+hey -z 300s -c 50 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-multiple-50.csv
+hey -z 300s -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-multiple-150.csv
+hey -n 200000 -c 150 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-multiple-200k.csv
+hey -z 300s -c 250 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-multiple-250.csv
+hey -z 300s -c 1000 -o csv https://192.168.49.2:31001/api/23bc46b1-71f6-4ed5-8c54-816aa4f8c502/thumbnail > thumbnail-multiple-1000.csv

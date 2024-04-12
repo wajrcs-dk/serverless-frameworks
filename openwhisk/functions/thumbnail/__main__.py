@@ -19,12 +19,13 @@
 """
 from random import randint
 import os
-# from PIL import Image
+from PIL import Image
 
 def main(dict):
-    image = Image.open(r"image.jpg")
-    MAX_SIZE = (100, 100)
-    image.thumbnail(MAX_SIZE)
-    result = 'thumb'+str(randint(100000000000, 999999999999))+'.jpg'
-    image.save(result)
-    return {"result": result}
+    with Image.open(r"image.jpg") as image:
+        MAX_SIZE = (100, 100)
+        image.thumbnail(MAX_SIZE)
+        result = 'thumb'+str(randint(100000000000, 999999999999))+'.jpg'
+        image.save(result)
+        return {"result": result}
+    return {"result": "File not found in " + os.path.realpath(__file__)}
