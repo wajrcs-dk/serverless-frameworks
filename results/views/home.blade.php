@@ -113,7 +113,7 @@
                     type: 'line',
                     zoom: {
                         enabled: false
-                    },
+                    }
                 },
                 dataLabels: {
                     enabled: false
@@ -124,8 +124,9 @@
                     dashArray: [0, 0, 0, 0, 0]
                 },
                 legend: {
-                    tooltipHoverFormatter: function (val, opts) {
-                        return val + ' - <strong>' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + '</strong>'
+                    offsetY: -25,
+                    markers: {
+                        radius: 2
                     }
                 },
                 markers: {
@@ -138,6 +139,7 @@
                     categories: series,
                     title: {
                         text: "Requests Series",
+                        offsetY: -30,
                         style: {
                             fontSize:  '13px',
                             fontWeight:  'bold',
@@ -148,7 +150,7 @@
                 },
                 yaxis: {
                     title: {
-                        text: 'Throughput (Sec)'
+                        text: 'Response Time (Sec)'
                     }
                 },
                 grid: {
@@ -174,7 +176,7 @@
                 },
                 yaxis: {
                     title: {
-                        text: 'Throughput (Sec)'
+                        text: 'Response Time (Sec)'
                     }
                 },
                 series: [
@@ -203,38 +205,15 @@
                                 y: openWhisk
                             }
                         ]
-                    }/*,
-                    {
-                        name: 'outliers',
-                        type: 'scatter',
-                        data: [
-                            {
-                                x:  'Fission',
-                                y: fissionC
-                            },
-                            {
-                                x: 'Knative',
-                                y: knativeC
-                            },
-                            {
-                                x: 'Nuclio',
-                                y: nuclioC
-                            },
-                            {
-                                x: 'OpenFaaS',
-                                y: openFaaSC
-                            },
-                            {
-                                x: 'openWhisk',
-                                y: openWhiskC
-                            }
-                        ]
-                    }*/
+                    }
                 ],
                 chart: {
                     type: 'boxPlot',
                     height: 350,
                     width: 500,
+                    zoom: {
+                        enabled: false
+                    }
                 },
                 plotOptions: {
                     boxPlot: {
@@ -262,7 +241,7 @@
             }
             const options = {
                 legend: {
-                    offsetY: 10,
+                    offsetY: 0,
                 },
                 colors: ["#4480da", "#a0d468", "#7a49e3", "#ffcd54", "#fb6e51", '#d9334a'],
                 series: [{

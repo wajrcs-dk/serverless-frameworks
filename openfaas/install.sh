@@ -43,6 +43,8 @@ X hey -z 300s -c 50 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000
 X hey -z 300s -c 150 http://10.4.110.208:31112/function/fibonacci -d "1000"
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-single-150.csv
 X hey -n 200000 -c 150 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-single-200k.csv
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-multiple-250.csv
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31112/function/fibonacci -d "1000" > fibonacci-multiple-1000.csv
 
 # Quicksort
 cd quicksort
@@ -60,6 +62,8 @@ X hey -z 300s -c 50 -o csv http://10.4.110.208:31112/function/quicksort -d "1,7,
 X hey -z 300s -c 150 http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2"
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2" > quicksort-single-150.csv
 X hey -n 200000 -c 150 -o csv http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2" > quicksort-single-200k.csv
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2" > quicksort-multiple-250.csv
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31112/function/quicksort -d "1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2,1,7,4,1,10,9,-2" > quicksort-multiple-1000.csv
 
 # Users
 cd users
@@ -77,6 +81,8 @@ X hey -z 300s -c 50 -o csv http://10.4.110.208:31112/function/users > users-sing
 X hey -z 300s -c 150 http://10.4.110.208:31112/function/users
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31112/function/users > users-single-150.csv
 X hey -n 200000 -c 150 -o csv http://10.4.110.208:31112/function/users > users-single-200k.csv
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31112/function/users > users-multiple-250.csv
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31112/function/users > users-multiple-1000.csv
 
 # Thumbnail Generator
 cd thumbnail
@@ -94,3 +100,5 @@ X hey -z 300s -c 50 -o csv http://10.4.110.208:31112/function/thumbnail > thumbn
 X hey -z 300s -c 150 http://10.4.110.208:31112/function/thumbnail
 X hey -z 300s -c 150 -o csv http://10.4.110.208:31112/function/thumbnail > thumbnail-single-150.csv
 X hey -n 200000 -c 150 -o csv http://10.4.110.208:31112/function/thumbnail > thumbnail-single-200k.csv
+X hey -z 300s -c 250 -o csv http://10.4.110.208:31112/function/thumbnail > thumbnail-multiple-250.csv
+X hey -z 300s -c 1000 -o csv http://10.4.110.208:31112/function/thumbnail > thumbnail-multiple-1000.csv
